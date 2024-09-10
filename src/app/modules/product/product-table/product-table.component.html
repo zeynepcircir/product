@@ -1,0 +1,43 @@
+<div>
+    <p-table appHighlight [value]="productList" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5,10,25,50]"
+        [scrollable]="true" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pResizableColumn pSortableColumn="id">{{ 'Id' }}<p-sortIcon field="id"></p-sortIcon>
+                </th>
+                <th pResizableColumn pSortableColumn="title">{{ 'Title' }} <p-columnFilter type="text" field="title"
+                        display="title"></p-columnFilter> <p-sortIcon field="title"></p-sortIcon></th>
+                <th pResizableColumn pSortableColumn="category">{{ 'Category' }} <p-columnFilter type="text"
+                        field="category" display="category"></p-columnFilter> <p-sortIcon field="category"></p-sortIcon>
+                </th>
+                <th pResizableColumn pSortableColumn="price">{{ 'Price' }} <p-columnFilter type="boolean" field="id"
+                        display="id"></p-columnFilter> <p-sortIcon field="price"></p-sortIcon></th>
+                <th pResizableColumn pSortableColumn="description">{{ 'Description' }} <p-columnFilter type="text"
+                        field="description" display="description"></p-columnFilter> <p-sortIcon
+                        field="description"></p-sortIcon></th>
+                <th pResizableColumn pSortableColumn="image">{{ 'Image' }} <p-sortIcon field="image"></p-sortIcon>
+                </th>
+                <th pResizableColumn pSortableColumn="actions">{{ 'Actions' }} <p-sortIcon field="actions"></p-sortIcon>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+            <tr>
+                <td>{{product?.id}}</td>
+                <td>{{product?.title}}</td>
+                <td>{{product?.category | uppercase}}</td>
+                <td>{{product?.price | currency}}</td>
+                <td>{{product?.description}}</td>
+                <td class="img"><img [alt]="product?.image" [src]="product?.image" width="80px"
+                        style="vertical-align: middle" />
+                </td>
+                <td>{{ product?.actions }}
+                    <button style="width: 98px; font-size: 18px;" (click)="show(product)" pButton pRipple type="button"
+                        label="Edit" class="p-button-outlined p-button-secondary"></button> &nbsp;
+                    <button style="width: 98px; font-size: 18px; ;" (click)="deleteProduct(product.id)" pButton pRipple
+                        type="button" label="Delete" class="p-button-outlined p-button-secondary"></button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
