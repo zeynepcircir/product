@@ -4,8 +4,14 @@ import { ProductMainComponent } from './product-main/product-main.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: "home",
     component: ProductMainComponent,
+    children: [
+      {
+        path: "product",
+        loadChildren: () => import('../modules/product/product.module').then(m => m.ProductModule),
+      }
+    ]
   },
 ];
 

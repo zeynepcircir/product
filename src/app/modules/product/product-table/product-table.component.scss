@@ -1,0 +1,130 @@
+// 
+
+
+
+::ng-deep {
+    .p-card .p-card-title {
+        color: rgb(66, 66, 66);
+        font-size: 23.4px;
+        font-weight: 600;
+        display: -webkit-box;
+        -webkit-line-clamp:3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .p-datatable.p-datatable-gridlines .p-datatable-tbody > tr > td{
+       
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+     
+    }
+}
+
+:host ::ng-deep {
+    .p-paginator {
+        .p-paginator-current {
+            margin-left: auto;
+        }
+    }
+
+    .p-progressbar {
+        height: .5rem;
+        background-color: #D8DADC;
+
+        .p-progressbar-value {
+            background-color: #607D8B;
+        }
+    }
+
+    .table-header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .p-calendar .p-datepicker {
+        min-width: 25rem;
+
+        td {
+            font-weight: 400;
+        }
+    }
+
+    .p-datatable.p-datatable-customers {
+        .p-datatable-header {
+            padding: 1rem;
+            text-align: left;
+            font-size: 1.5rem;
+        }
+
+        .p-paginator {
+            padding: 1rem;
+        }
+
+        .p-datatable-thead > tr > th {
+            text-align: left;
+        }
+
+        .p-datatable-tbody > tr > td {
+            cursor: auto;
+        }
+
+        .p-dropdown-label:not(.p-placeholder) {
+            text-transform: uppercase;
+        }
+    }
+
+    /* Responsive */
+    .p-datatable-customers .p-datatable-tbody > tr > td .p-column-title {
+        display: none;
+    }
+}
+
+
+
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 5rem;
+}
+
+.layout-news-active :host ::ng-deep .p-datatable tr > th {
+    top: 7rem;
+}
+
+.img{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+@media screen and (max-width:768px){
+    .card {
+        margin: 0.4rem;
+    }
+}
+
+.title-container {
+    height: fit-content; 
+    margin-bottom: 10px; 
+}
+
+
+@media screen and (max-width:768px){
+    .card {
+        margin: 0.4rem; 
+    }
+}
+
+
+.button{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 9rem;
+    
+}

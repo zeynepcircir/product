@@ -2,7 +2,8 @@
     <nav>
         <ul>
             <li>
-                <img class="logo logo-light"  src="assets/images.png" title="Shopping" alt="Shopping" routerLink="/product-card/" >
+                <img class="logo logo-light" src="assets/images.png" title="Shopping" alt="Shopping"
+                    routerLink="/product-card/">
             </li> &nbsp;
             <li *ngFor="let category of categoryList" class="list">
                 <a (click)="handleClick(category)"> {{ category }}</a>

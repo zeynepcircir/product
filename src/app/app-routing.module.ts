@@ -3,8 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 
 const routes: Routes = [
     {
-        path: '',
-        data: { pageTitle: 'Ana Sayfa' },
+        path: 'home',
         loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule),
     },
 ];

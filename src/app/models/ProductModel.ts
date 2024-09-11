@@ -1,4 +1,4 @@
-import { RatingModel } from './RatingModel';
+import { RatingModel } from "./RatingModel";
 
 export class ProductModel {
   category: string | null = null;

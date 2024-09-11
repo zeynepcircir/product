@@ -2,7 +2,6 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductModel } from 'src/app/models/ProductModel';
 import { ProductService } from 'src/app/services/product.service';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-product-header',
@@ -17,12 +16,12 @@ export class ProductHeaderComponent implements OnInit {
 
 
   constructor(
-    private _http: HttpClient,
     private productService: ProductService,
     private _route: Router
   ) {}
 
   ngOnInit(): void {
+    console.log("SELAMLAR")
     this.getCategories();
   }
 

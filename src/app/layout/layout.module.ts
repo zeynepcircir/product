@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { ProductHeaderComponent } from './product-header/product-header.component';
 import { ProductMainComponent } from './product-main/product-main.component';
+import { ProductModule } from '../modules/product/product.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ProductMainComponent } from './product-main/product-main.component';
   ],
   imports: [
     CommonModule,
-    LayoutRoutingModule
+    LayoutRoutingModule,
+    ProductModule
   ]
 })
 export class LayoutModule { }

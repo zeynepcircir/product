@@ -1,0 +1,64 @@
+
+
+
+@media screen and (max-width: 768px){
+  
+    .btn-div{
+      
+     
+      overflow-x: scroll;
+      
+    }
+  
+}
+
+
+
+nav {
+  background-color: #ffffff; 
+  cursor: pointer;
+}
+
+nav .container {
+  width: 80%; 
+  margin: 0 auto; 
+}
+
+nav ul {
+  list-style-type: none;
+  margin-top: 50px;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 100px; 
+}
+
+nav ul li:last-child {
+  margin-right: 0; 
+}
+
+nav ul li a {
+  display: block;
+  color: #000000; 
+  text-decoration: none;
+  padding: 10px 15px;
+  font-size: 1.125rem;
+  font-weight: 400!important;
+}
+
+nav ul li a:hover {
+  background-color: #f2f2f2; 
+}
+
+.logo{
+  height: 60px;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 10rem;
+}
+
+.list{
+  margin-left: 2rem;
+}
