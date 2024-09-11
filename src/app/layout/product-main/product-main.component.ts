@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductModel } from 'src/app/models/ProductModel';
 
 @Component({
   selector: 'app-product-main',
@@ -8,9 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class ProductMainComponent implements OnInit {
 
   constructor() { }
-
+  productList: ProductModel[] = [];
   ngOnInit(): void {
-    console.log("SELAM")
   }
 
 }

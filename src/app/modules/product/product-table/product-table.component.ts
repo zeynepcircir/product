@@ -6,7 +6,6 @@ import { ProductService } from 'src/app/services/product.service';
 import { DialogService } from 'primeng/dynamicdialog';
 import { filter } from 'rxjs';
 import { ProductEditComponent } from '../product-edit/product-edit.component';
-
 @Component({
   selector: 'app-product-table',
   templateUrl: './product-table.component.html',
