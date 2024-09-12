@@ -1,12 +1,15 @@
 <div>
     <form [formGroup]="profileForm" style="display: flex; flex-direction: column;">
   
-      <div class="p-field p-col-12 p-md-6">
-        <label for="category">Category:</label>
-        <span class="p-float-label">
-          <input type="text" id="category" pInputText formControlName="category" />
-        </span>
-      </div>
+
+    <div class="p-field p-col-12 p-md-6">
+      <label for="category">Category:</label>
+      <p-dropdown 
+        [options]="categoryOptions" 
+        formControlName="category" 
+        placeholder="Select a Category">
+      </p-dropdown>
+    </div>
       
       <div class="p-field p-col-12">
         <label for="description">Description:</label>

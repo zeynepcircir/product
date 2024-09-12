@@ -4,9 +4,11 @@
     <!-- Category -->
     <div class="p-field p-col-12 p-md-6">
       <label for="category">Category:</label>
-      <span class="p-float-label">
-        <input type="text" id="category" pInputText formControlName="category" />
-      </span>
+      <p-dropdown 
+        [options]="categoryOptions" 
+        formControlName="category" 
+        placeholder="Select a Category">
+      </p-dropdown>
       <small *ngIf="profileForm.get('category')?.invalid && profileForm.get('category')?.touched" class="p-error">
         Category is required.
       </small>

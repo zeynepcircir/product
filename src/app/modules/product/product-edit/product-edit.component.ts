@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductTableComponent } from '../product-table/product-table.component';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ProductModel } from 'src/app/models/ProductModel';
+import { Category, ProductModel } from 'src/app/models/ProductModel';
 
 @Component({
   selector: 'app-product-edit',
@@ -14,6 +14,13 @@ previewImage: string | ArrayBuffer | null = null;
   uploadedFiles: any[] = []
   product: ProductModel | null = null;
   value1: string = '';
+
+
+   // Dropdown için Kategori Seçenekleri
+  categoryOptions = Object.keys(Category).map(key => ({
+    label: Category[key as keyof typeof Category],
+    value: Category[key as keyof typeof Category]
+  }));
 
   profileForm = new FormGroup({
     category: new FormControl(''),

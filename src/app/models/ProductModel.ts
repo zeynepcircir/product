@@ -9,3 +9,10 @@ export class ProductModel {
   title: string | null = null;
   rating: RatingModel | null = null;
 }
+export enum Category {
+  MobilePhones = 'Mobile Phones',
+  Laptops = 'Laptops',
+  Cameras = 'Cameras',
+  AudioHeadphones = 'Audio & Headphones',
+  Tablets = 'Tablets'
+}
