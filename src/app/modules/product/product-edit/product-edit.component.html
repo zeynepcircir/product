@@ -6,9 +6,6 @@
         <span class="p-float-label">
           <input type="text" id="category" pInputText formControlName="category" />
         </span>
-        <small *ngIf="profileForm.get('category')?.invalid && profileForm.get('category')?.touched" class="p-error">
-          Category is required.
-        </small>
       </div>
       
       <div class="p-field p-col-12">
@@ -16,9 +13,6 @@
         <span class="p-float-label">
           <textarea id="description" rows="3" pInputTextarea formControlName="description"></textarea>
         </span>
-        <small *ngIf="profileForm.get('description')?.invalid && profileForm.get('description')?.touched" class="p-error">
-          Description is required and must not exceed 500 characters. Only alphanumeric characters and basic punctuation are allowed.
-        </small>
       </div>
   
 
@@ -32,9 +26,7 @@
           mode="basic"
           accept="image/*">
         </p-fileUpload>
-        <small *ngIf="profileForm.get('image')?.invalid && profileForm.get('image')?.touched" class="p-error">
-          Image is required.
-        </small>
+      
 
         <div *ngIf="previewImage">
           <img [src]="previewImage" alt="Preview" style="width: 150px; height: auto;" />
@@ -47,9 +39,6 @@
         <span class="p-float-label">
           <input type="text" id="price" pInputText formControlName="price" />
         </span>
-        <small *ngIf="profileForm.get('price')?.invalid && profileForm.get('price')?.touched" class="p-error">
-          Price is required, must be a number, and cannot exceed 10 digits.
-        </small>
       </div>
   
       <div class="p-field p-col-12 p-md-6">
@@ -57,17 +46,11 @@
         <span class="p-float-label">
           <input type="text" id="title" pInputText formControlName="title" />
         </span>
-        <small *ngIf="profileForm.get('title')?.invalid && profileForm.get('title')?.touched" class="p-error">
-          Title is required and must not exceed 30 characters. Only alphanumeric characters are allowed.
-        </small>
       </div>
 
       <div class="p-field p-col-12 p-md-6">
         <label for="rating">Rating:</label>
         <p-rating formControlName="rating" [cancel]="false" [stars]="5"></p-rating>
-        <small *ngIf="profileForm.get('rating')?.invalid && profileForm.get('rating')?.touched" class="p-error">
-          Rating is required and must be between 0 and 5.
-        </small>
       </div>
     
   

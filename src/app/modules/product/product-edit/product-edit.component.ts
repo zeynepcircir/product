@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductTableComponent } from '../product-table/product-table.component';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ProductModel } from 'src/app/models/ProductModel';
 
 @Component({
@@ -16,30 +16,13 @@ previewImage: string | ArrayBuffer | null = null;
   value1: string = '';
 
   profileForm = new FormGroup({
-    category: new FormControl('', Validators.required), 
-    
-    description: new FormControl('', [
-      Validators.required, 
-      Validators.maxLength(20),
-      Validators.pattern('^[a-zA-Z0-9 .,!?]*$') 
-    ]), 
-
-    image: new FormControl('', Validators.required), 
-    
-
-    price: new FormControl('', [
-      Validators.required, 
-      Validators.pattern('^[0-9]+$'),
-      Validators.maxLength(10)
-    ]), 
-
-    title: new FormControl('', [
-      Validators.required, 
-      Validators.maxLength(30),
-      Validators.pattern('^[a-zA-Z0-9 ]*$')
-    ]), 
-
-    rating: new FormControl(0, [Validators.required, Validators.min(0), Validators.max(5)]) 
+    category: new FormControl(''),
+    description: new FormControl(''),
+    image: new FormControl(''),
+    price: new FormControl(''),
+    title: new FormControl(''),
+    id: new FormControl(''),
+    rating: new FormControl(0) 
   });
 
   constructor(
@@ -64,18 +47,18 @@ previewImage: string | ArrayBuffer | null = null;
   }
 
   onUpload(event: any) {
-    const file = event.files[0];  
+    const file = event.files[0];  // İlk dosyayı alıyoruz
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
         if (typeof reader.result === 'string') {
-          this.previewImage = reader.result;  
+          this.previewImage = reader.result;  // Görselin önizlemesi için
           this.profileForm.patchValue({
-            image: reader.result 
+            image: reader.result  // Görseli base64 formatında form verisine ekliyoruz
           });
         }
       };
-      reader.readAsDataURL(file); 
+      reader.readAsDataURL(file);  // Görseli base64 formatına çeviriyoruz
     }
   }
   
