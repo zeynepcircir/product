@@ -8,7 +8,8 @@
         display: -webkit-box;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
-     
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -17,6 +18,16 @@
         .p-paginator-current {
             margin-left: auto;
         }
+    }
+
+    .p-button.p-button-icon-only{
+        margin-left: 0.3rem;
+        width: 1.6rem;
+        height: 1.6rem;
+    }
+    
+    .p-datatable-scrollable .p-datatable-thead>tr>th{
+        justify-content: center;
     }
 
     .p-progressbar {
@@ -65,7 +76,7 @@
         }
     }
 
-    /* Responsive */
+  
     .p-datatable-customers .p-datatable-tbody > tr > td .p-column-title {
         display: none;
     }
@@ -101,8 +112,5 @@
 .button{
     display: flex;
     justify-content: flex-end;
-    margin-right: 9rem;
     
 }
-
-

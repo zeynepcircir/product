@@ -14,34 +14,30 @@ export class ProductAddComponent implements OnInit {
   previewImage: string | ArrayBuffer | null = null; 
 
   profileForm = new FormGroup({
-    // Required, sadece metin kabul edilir
     category: new FormControl('', Validators.required), 
     
-    // Required, max 500 karakter, sadece metin
     description: new FormControl('', [
       Validators.required, 
-      Validators.maxLength(500),
-      Validators.pattern('^[a-zA-Z0-9 .,!?]*$') // Alfanumerik ve noktalama işaretleri
+      Validators.maxLength(20),
+      Validators.pattern('^[a-zA-Z0-9 .,!?]*$') 
     ]), 
     
-    // Required (Görsel yükleme)
     image: new FormControl('', Validators.required), 
     
-    // Required, sadece rakam, max 10 karakter
+
     price: new FormControl('', [
       Validators.required, 
-      Validators.pattern('^[0-9]+$'), // Sadece rakam kabul edilir
+      Validators.pattern('^[0-9]+$'), 
       Validators.maxLength(10)
     ]), 
     
-    // Required, max 100 karakter
+
     title: new FormControl('', [
       Validators.required, 
-      Validators.maxLength(100),
-      Validators.pattern('^[a-zA-Z0-9 ]*$') // Sadece alfanumerik karakterler kabul edilir
+      Validators.maxLength(30),
+      Validators.pattern('^[a-zA-Z0-9 ]*$') 
     ]), 
     
-    // Required, 0 ile 5 arasında olmalı
     rating: new FormControl(0, [Validators.required, Validators.min(0), Validators.max(5)]) 
   });
 
@@ -55,18 +51,18 @@ export class ProductAddComponent implements OnInit {
   ngOnInit(): void {}
 
   onFileSelected(event: any) {
-    const file = event.files[0];  // Seçilen ilk dosyayı alıyoruz
+    const file = event.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
         if (typeof reader.result === 'string') {
-          this.previewImage = reader.result;  // Görselin önizlemesi için
+          this.previewImage = reader.result; 
           this.profileForm.patchValue({
-            image: reader.result  // Görseli base64 formatında form verisine ekliyoruz
+            image: reader.result 
           });
         }
       };
-      reader.readAsDataURL(file);  // Dosyayı base64 formatına çeviriyoruz
+      reader.readAsDataURL(file);  
     }
   }
   
@@ -80,8 +76,8 @@ export class ProductAddComponent implements OnInit {
   save() {
     if (this.profileForm.valid) {
       const formValue = this.profileForm.getRawValue() as ProductModel;
-      this.productService.addProduct(formValue); // Ürünü ekleyip kaydediyoruz
-      this.dynamicDialogRef.close(formValue); // Formu kapatıyoruz
+      this.productService.addProduct(formValue); 
+      this.dynamicDialogRef.close(formValue);
     }
   }
   cancel() {

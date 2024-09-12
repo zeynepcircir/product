@@ -6,8 +6,8 @@
 }
 
 body {
-  font-family: Arial, sans-serif; /* Font tipini ayarla */
-  background-color: #f4f4f4; /* Sayfanın genel arka plan rengi */
+  font-family: Arial, sans-serif; 
+  background-color: #f4f4f4;
 }
 
 @media screen and (max-width: 768px){
@@ -17,13 +17,13 @@ body {
 }
 
 nav {
-  background-color: #ffffff; /* Canlı bir arka plan rengi */
+  background-color: #ffffff; 
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Daha ince bir gölge */
-  border: 1px solid #d7d1d1; /* Beyaz çerçeve ekle */
-  padding: 5px 20px; /* Üst ve alt padding ekle */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  border: 1px solid #d7d1d1;
+  padding: 5px 20px; 
   margin-bottom: 15px;
-  border-radius: 10px; /* Kenarları yuvarlak yap */
+  border-radius: 10px;
 }
 
 nav .container {
@@ -43,7 +43,7 @@ nav ul {
 
 nav ul li {
   display: inline-block;
-  margin: 0 20px; /* Liste elemanları arasında azalan boşluk */
+  margin: 0 20px; 
 }
 
 nav ul li:last-child {
@@ -52,27 +52,27 @@ nav ul li:last-child {
 
 nav ul li a {
   display: block;
-  color: #000000; /* Beyaz renkli metin */
+  color: #000000; 
   text-decoration: none;
-  padding: 5px 10px; /* Padding değerlerini azalt */
-  font-size: 1rem; /* Font boyutunu düşür */
-  font-weight: 500; /* Font kalınlığını azalt */
+  padding: 5px 10px; 
+  font-size: 1rem; 
+  font-weight: 500; 
   transition: all 0.3s ease; 
 }
 
 nav ul li a:hover {
-  background-color: #ffffff; /* Hover durumunda daha koyu bir renk */
+  background-color: #ffffff; 
   color: #000000;
   border-radius: 10px;
 }
 
 .logo {
-  height: 40px; /* Logo boyutunu küçült */
+  height: 40px; 
   display: flex;
   justify-content: flex-start;
-  margin-left: 1rem; /* Logo için azalan margin değeri */
+  margin-left: 1rem; 
 }
 
 .list {
-  margin-left: 1rem; /* Liste elemanları için azalan margin değeri */
+  margin-left: 1rem; 
 }

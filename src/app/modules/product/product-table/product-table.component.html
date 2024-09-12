@@ -1,6 +1,5 @@
-<div style="margin-bottom: 20px; display: flex; justify-content: end;">
-    <button (click)="showAddProductDialog()" pButton pRipple type="button" label="Add New Product"
-        class="p-button-secondary"></button>
+<div style="margin-bottom: 20px; margin-right: 1.3rem; display: flex; justify-content: end;">
+    <button  (click)="showAddProductDialog()" pButton pRipple type="button" label="Primary" icon="pi pi-plus"></button>
 </div>
 
 <div>
@@ -35,20 +34,19 @@
                 <td>{{product?.category | uppercase}}</td>
                 <td>{{product?.price | currency}}</td>
                 <td>{{product?.description}}</td>
-                <td class="img"><img [alt]="product?.image" [src]="product?.image" width="80px"
+                <td class="img"><img [alt]="product?.image" [src]="product?.image" width="40px"
                         style="vertical-align: middle" />
                 </td>
-                <!-- Rating sadece görüntüleniyor, değiştirilemez -->
+               
                 <td (click)="deneme(product)">
                     <p-rating [(ngModel)]="product.rating" [cancel]="false" [stars]="5" [disabled]="true"></p-rating>
 
 
                 </td>
-                <td>
-                    <button style="width: 98px; font-size: 18px;" (click)="show(product)" pButton pRipple type="button"
-                        label="Edit" class="p-button-outlined p-button-secondary"></button> &nbsp;
-                    <button style="width: 98px; font-size: 18px; ;" (click)="deleteProduct(product.id)" pButton pRipple
-                        type="button" label="Delete" class="p-button-outlined p-button-secondary"></button>
+                <td style="display:flex; justify-content: center;">
+                    <p-button (click)="show(product)"  icon="pi pi-pencil"></p-button>
+                    <p-button (click)="deleteProduct(product.id)"  icon="pi pi-trash" ></p-button>
+                    
                 </td>
             </tr>
         </ng-template>

@@ -6,7 +6,7 @@ import { ProductService } from 'src/app/services/product.service';
 import { DialogService } from 'primeng/dynamicdialog';
 import { filter } from 'rxjs';
 import { ProductEditComponent } from '../product-edit/product-edit.component';
-import { ProductAddComponent } from '../product-add/product-add.component'; // Add import
+import { ProductAddComponent } from '../product-add/product-add.component'; 
 
 @Component({
   selector: 'app-product-table',
@@ -27,7 +27,7 @@ export class ProductTableComponent implements OnInit {
     private _activatedRoute: ActivatedRoute
   ) {}
 
-  // Show Product Edit Dialog
+
   show(product: ProductModel) {
     this.dialogService
       .open(ProductEditComponent, {
@@ -41,7 +41,7 @@ export class ProductTableComponent implements OnInit {
         if (updatedProduct) {
           const index = this.productList.findIndex((pr) => pr.id === updatedProduct.id);
           if (index !== -1) {
-            this._productService.updateProduct(updatedProduct.id!, updatedProduct); // Güncellenmiş ürünü servise gönderiyoruz
+            this._productService.updateProduct(updatedProduct.id!, updatedProduct); 
             this.productList[index] = updatedProduct;
           this.fetch()
           }
@@ -60,7 +60,7 @@ export class ProductTableComponent implements OnInit {
       })
       .onClose.subscribe((newProduct: ProductModel) => {
         if (newProduct) {
-          this._productService.addProduct(newProduct); // Yeni ürünü servise ekliyoruz
+          this._productService.addProduct(newProduct); 
           this.productList.push(newProduct);
         }
       });
@@ -101,12 +101,12 @@ export class ProductTableComponent implements OnInit {
   }
 
   updateRating(product: ProductModel) {
-    this._productService.updateProduct(product.id!, product); // Serviste ürünü güncelliyoruz
+    this._productService.updateProduct(product.id!, product); 
   }
   
   deleteProduct(id: number) {
-    this._productService.deleteProduct(id); // Mock veri listesinden ürünü siliyoruz
-    this.productList = this.productList.filter(product => product.id !== id); // Arayüzdeki listeyi de güncelliyoruz
+    this._productService.deleteProduct(id); 
+    this.productList = this.productList.filter(product => product.id !== id); 
   }
 
   deneme(product: ProductModel) {
