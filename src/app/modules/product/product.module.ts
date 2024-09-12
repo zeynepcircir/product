@@ -17,6 +17,7 @@ import { DropdownModule } from "primeng/dropdown";
 import { ProductAddComponent } from './product-add/product-add.component';
 import { PaginatorModule } from 'primeng/paginator';
 import {RatingModule} from 'primeng/rating';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {RatingModule} from 'primeng/rating';
     InputTextModule,
     FileUploadModule,
     RatingModule,
-    PaginatorModule
+    PaginatorModule,
+    InputTextareaModule
   ],
   providers: [DialogService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

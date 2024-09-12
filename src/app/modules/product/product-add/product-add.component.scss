@@ -1,0 +1,23 @@
+.p-field {
+  margin-bottom: 2rem;
+}
+
+.p-float-label input, .p-float-label textarea {
+  width: 100%;
+}
+
+.p-float-label label {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-weight: bold;
+}
+
+#description{
+  max-width: 100%;
+  max-height: 10rem;
+}

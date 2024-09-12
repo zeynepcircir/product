@@ -1,9 +1,10 @@
-<div style="margin-bottom: 20px;">
+<div style="margin-bottom: 20px; display: flex; justify-content: end;">
     <button (click)="showAddProductDialog()" pButton pRipple type="button" label="Add New Product"
-        class="p-button-success"></button>
+        class="p-button-secondary"></button>
 </div>
 
 <div>
+    
     <p-table appHighlight [value]="productList" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5,10,25,50]"
         [scrollable]="true" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
         <ng-template pTemplate="header">

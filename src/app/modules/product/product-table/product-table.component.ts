@@ -32,7 +32,7 @@ export class ProductTableComponent implements OnInit {
     this.dialogService
       .open(ProductEditComponent, {
         header: 'Edit Product',
-        width: '70%',
+        width: '40%',
         contentStyle: { 'max-height': '500px', overflow: 'auto' },
         baseZIndex: 10000,
         data: product,
@@ -54,7 +54,7 @@ export class ProductTableComponent implements OnInit {
     this.dialogService
       .open(ProductAddComponent, {
         header: 'Add Product',
-        width: '70%',
+        width: '40%',
         contentStyle: { 'max-height': '500px', overflow: 'auto' },
         baseZIndex: 10000,
       })

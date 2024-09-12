@@ -1,18 +1,6 @@
-// 
-
 
 
 ::ng-deep {
-    .p-card .p-card-title {
-        color: rgb(66, 66, 66);
-        font-size: 23.4px;
-        font-weight: 600;
-        display: -webkit-box;
-        -webkit-line-clamp:3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
     .p-datatable.p-datatable-gridlines .p-datatable-tbody > tr > td{
        
         overflow: hidden;
@@ -103,23 +91,11 @@
 
 
 
-@media screen and (max-width:768px){
-    .card {
-        margin: 0.4rem;
-    }
-}
-
 .title-container {
     height: fit-content; 
     margin-bottom: 10px; 
 }
 
-
-@media screen and (max-width:768px){
-    .card {
-        margin: 0.4rem; 
-    }
-}
 
 
 .button{
@@ -128,3 +104,5 @@
     margin-right: 9rem;
     
 }
+
+

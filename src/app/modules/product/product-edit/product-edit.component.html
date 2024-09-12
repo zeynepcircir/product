@@ -2,14 +2,14 @@
     <form [formGroup]="profileForm" style="display: flex; flex-direction: column;">
   
       <div class="p-field p-col-12 p-md-6">
-        <label for="category">Category</label>
+        <label for="category">Category:</label>
         <span class="p-float-label">
           <input type="text" id="category" pInputText formControlName="category" />
         </span>
       </div>
       
       <div class="p-field p-col-12">
-        <label for="description">Description</label>
+        <label for="description">Description:</label>
         <span class="p-float-label">
           <textarea id="description" rows="3" pInputTextarea formControlName="description"></textarea>
         </span>
@@ -17,7 +17,7 @@
   
 
       <div class="p-field p-col-12 p-md-6">
-        <label>Upload Image</label>
+        <label>Upload Image:</label>
         <p-fileUpload 
           name="myfile[]" 
           [customUpload]="true" 
@@ -35,18 +35,24 @@
       
       
       <div class="p-field p-col-12 p-md-6">
-        <label for="price">Price</label>
+        <label for="price">Price:</label>
         <span class="p-float-label">
           <input type="text" id="price" pInputText formControlName="price" />
         </span>
       </div>
   
       <div class="p-field p-col-12 p-md-6">
-        <label for="title">Title</label>
+        <label for="title">Title:</label>
         <span class="p-float-label">
           <input type="text" id="title" pInputText formControlName="title" />
         </span>
       </div>
+
+      <div class="p-field p-col-12 p-md-6">
+        <label for="rating">Rating:</label>
+        <p-rating formControlName="rating" [cancel]="false" [stars]="5"></p-rating>
+      </div>
+    
   
     </form>
   

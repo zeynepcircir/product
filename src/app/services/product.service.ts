@@ -8,7 +8,7 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 export class ProductService {
   private localStorageKey = 'productList';
   private productList: ProductModel[] = []; // Başlangıçta boş liste
-  private categoryList: string[] = ['Mobile Phones', 'Laptops', 'Cameras', 'Audio & Headphones']; // Sabit kategori listesi
+  private categoryList: string[] = ['ALL PRODUCTS','Mobile Phones', 'Laptops', 'Cameras', 'Audio & Headphones']; // Sabit kategori listesi
 
   private productListSubject = new BehaviorSubject<ProductModel[]>(this.productList);
   private categoryListSubject = new BehaviorSubject<string[]>(this.categoryList);

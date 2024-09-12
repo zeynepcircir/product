@@ -22,6 +22,7 @@ previewImage: string | ArrayBuffer | null = null;
     price: new FormControl(''),
     title: new FormControl(''),
     id: new FormControl(''),
+    rating: new FormControl(0) 
   });
 
   constructor(
