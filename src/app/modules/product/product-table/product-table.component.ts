@@ -43,6 +43,7 @@ export class ProductTableComponent implements OnInit {
           if (index !== -1) {
             this._productService.updateProduct(updatedProduct.id!, updatedProduct); // Güncellenmiş ürünü servise gönderiyoruz
             this.productList[index] = updatedProduct;
+          this.fetch()
           }
         }
       });
@@ -66,6 +67,10 @@ export class ProductTableComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  this.fetch()
+  }
+
+  fetch() {
     this.primengConfig.ripple = true;
 
     this._activatedRoute.paramMap.subscribe((params) => {
@@ -102,5 +107,9 @@ export class ProductTableComponent implements OnInit {
   deleteProduct(id: number) {
     this._productService.deleteProduct(id); // Mock veri listesinden ürünü siliyoruz
     this.productList = this.productList.filter(product => product.id !== id); // Arayüzdeki listeyi de güncelliyoruz
+  }
+
+  deneme(product: ProductModel) {
+    console.log(product)
   }
 }

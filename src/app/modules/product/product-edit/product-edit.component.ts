@@ -10,7 +10,7 @@ import { ProductModel } from 'src/app/models/ProductModel';
   styleUrls: ['./product-edit.component.scss']
 })
 export class ProductEditComponent implements OnInit {
-
+previewImage: string | ArrayBuffer | null = null; 
   uploadedFiles: any[] = []
   product: ProductModel | null = null;
   value1: string = '';
@@ -45,11 +45,22 @@ export class ProductEditComponent implements OnInit {
     this.dynamicDialogRef.close(this.profileForm.getRawValue());
   }
 
-
   onUpload(event: any) {
-    for(let file of event.files) {
-        this.uploadedFiles.push(file);
+    const file = event.files[0];  // İlk dosyayı alıyoruz
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (typeof reader.result === 'string') {
+          this.previewImage = reader.result;  // Görselin önizlemesi için
+          this.profileForm.patchValue({
+            image: reader.result  // Görseli base64 formatında form verisine ekliyoruz
+          });
+        }
+      };
+      reader.readAsDataURL(file);  // Görseli base64 formatına çeviriyoruz
     }
+  }
+  
+  
+}
 
-}
-}

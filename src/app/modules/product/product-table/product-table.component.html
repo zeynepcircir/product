@@ -1,5 +1,6 @@
 <div style="margin-bottom: 20px;">
-    <button (click)="showAddProductDialog()" pButton pRipple type="button" label="Add New Product" class="p-button-success"></button>
+    <button (click)="showAddProductDialog()" pButton pRipple type="button" label="Add New Product"
+        class="p-button-success"></button>
 </div>
 
 <div>
@@ -38,8 +39,10 @@
                         style="vertical-align: middle" />
                 </td>
                 <!-- Rating sadece görüntüleniyor, değiştirilemez -->
-                <td>
-                    <p-rating [ngModel]="product.rating!.rate" [cancel]="false" [stars]="5" [disabled]="true"></p-rating>
+                <td (click)="deneme(product)">
+                    <p-rating [(ngModel)]="product.rating" [cancel]="false" [stars]="5" [disabled]="true"></p-rating>
+
+
                 </td>
                 <td>
                     <button style="width: 98px; font-size: 18px;" (click)="show(product)" pButton pRipple type="button"

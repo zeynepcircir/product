@@ -11,7 +11,7 @@ import { ProductModel } from 'src/app/models/ProductModel';
 })
 export class ProductAddComponent implements OnInit {
 
-  previewImage: string | ArrayBuffer | null = null;
+  previewImage: string | ArrayBuffer | null = null; 
   profileForm = new FormGroup({
     category: new FormControl(''),
     description: new FormControl(''),
@@ -28,22 +28,22 @@ export class ProductAddComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // Dosya seçildiğinde base64 formatında görseli yükle
   onFileSelected(event: any) {
-    const file = event.target.files[0];
+    const file = event.target.files[0];  // Seçilen ilk dosyayı alıyoruz
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
         if (typeof reader.result === 'string') {
-          this.previewImage = reader.result;
+          this.previewImage = reader.result;  // Görselin önizlemesi için
           this.profileForm.patchValue({
-            image: reader.result // Görseli base64 olarak form verisine ekliyoruz
+            image: reader.result  // Görseli base64 formatında form verisine ekliyoruz
           });
         }
       };
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(file);  // Dosyayı base64 formatına çeviriyoruz
     }
   }
+  
 
   save() {
     if (this.profileForm.valid) {

@@ -15,18 +15,25 @@
         </span>
       </div>
   
-      <div class="p-field p-col-12 p-md-6">
-        <label for="image">Image URL</label>
-        <span class="p-float-label">
-          <input type="text" id="image" pInputText formControlName="image" />
-        </span>
-      </div>
-  
+
       <div class="p-field p-col-12 p-md-6">
         <label>Upload Image</label>
-        <p-fileUpload name="myfile[]" url="./upload.php" (onUpload)="onUpload($event)" chooseLabel="Select Image" mode="basic"></p-fileUpload>
+        <p-fileUpload 
+          name="myfile[]" 
+          [customUpload]="true" 
+          (uploadHandler)="onUpload($event)" 
+          chooseLabel="Select Image" 
+          mode="basic"
+          accept="image/*">
+        </p-fileUpload>
+      
+
+        <div *ngIf="previewImage">
+          <img [src]="previewImage" alt="Preview" style="width: 150px; height: auto;" />
+        </div>
       </div>
-  
+      
+      
       <div class="p-field p-col-12 p-md-6">
         <label for="price">Price</label>
         <span class="p-float-label">
