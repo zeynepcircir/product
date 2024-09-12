@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { PrimeNGConfig } from 'primeng/api';
+import {ConfirmationService, Message, MessageService, PrimeNGConfig} from 'primeng/api';
 import { ProductModel } from 'src/app/models/ProductModel';
 import { ProductService } from 'src/app/services/product.service';
 import { DialogService } from 'primeng/dynamicdialog';
 import { filter } from 'rxjs';
 import { ProductEditComponent } from '../product-edit/product-edit.component';
-import { ProductAddComponent } from '../product-add/product-add.component'; 
+import { ProductAddComponent } from '../product-add/product-add.component';
 
 @Component({
   selector: 'app-product-table',
@@ -24,6 +24,8 @@ export class ProductTableComponent implements OnInit {
     private _productService: ProductService,
     private _route: Router,
     private dialogService: DialogService,
+    private confirmationService: ConfirmationService,
+    private messageService: MessageService,
     private _activatedRoute: ActivatedRoute
   ) {}
 
@@ -31,17 +33,17 @@ export class ProductTableComponent implements OnInit {
   show(product: ProductModel) {
     this.dialogService
       .open(ProductEditComponent, {
-        header: 'Edit Product',
-        width: '40%',
+        header: 'Edit Product: ' + product.title,
+        width: '60%',
         contentStyle: { 'max-height': '500px', overflow: 'auto' },
         baseZIndex: 10000,
         data: product,
       })
       .onClose.subscribe((updatedProduct: ProductModel) => {
         if (updatedProduct) {
-          const index = this.productList.findIndex((pr) => pr.id === updatedProduct.id);
+          const index = this.productList.findIndex((pr) => pr.id === product.id);
           if (index !== -1) {
-            this._productService.updateProduct(updatedProduct.id!, updatedProduct); 
+            this._productService.updateProduct(product.id!, updatedProduct);
             this.productList[index] = updatedProduct;
           this.fetch()
           }
@@ -54,13 +56,13 @@ export class ProductTableComponent implements OnInit {
     this.dialogService
       .open(ProductAddComponent, {
         header: 'Add Product',
-        width: '40%',
+        width: '60%',
         contentStyle: { 'max-height': '500px', overflow: 'auto' },
         baseZIndex: 10000,
       })
       .onClose.subscribe((newProduct: ProductModel) => {
         if (newProduct) {
-          this._productService.addProduct(newProduct); 
+          this._productService.addProduct(newProduct);
           this.productList.push(newProduct);
         }
       });
@@ -72,9 +74,8 @@ export class ProductTableComponent implements OnInit {
 
   fetch() {
     this.primengConfig.ripple = true;
-
     this._activatedRoute.paramMap.subscribe((params) => {
-      this.categoryName = params.get('categoryName') ?? '';
+      this.categoryName = params.get('categoryName') ?? 'all-products';
       this.getProductByCategory();
     });
 
@@ -82,7 +83,7 @@ export class ProductTableComponent implements OnInit {
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event) => {
         if (event instanceof NavigationEnd) {
-          this.categoryName = this._activatedRoute.snapshot.paramMap.get('categoryName') || '';
+          this.categoryName = this._activatedRoute.snapshot.paramMap.get('categoryName') || 'all-products';
           this.getProductByCategory();
         }
       });
@@ -103,10 +104,32 @@ export class ProductTableComponent implements OnInit {
   updateRating(product: ProductModel) {
     this._productService.updateProduct(product.id!, product); 
   }
-  
-  deleteProduct(id: number) {
-    this._productService.deleteProduct(id); 
-    this.productList = this.productList.filter(product => product.id !== id); 
+  confirmDelete(product: any) {
+    console.log("SELMALAR")
+    if (!product || !product.id) {
+      return;  // Ürün geçersizse işlemi sonlandır
+    }
+    this.confirmationService.confirm({
+      message: `Are you sure you want to delete ${product.title}?`,
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        // Kullanıcı silme işlemini kabul ederse
+        this.deleteProduct(product.id, product.title);
+      },
+      reject: () => {
+        // İptal işlemi yapıldığında toast mesajı
+        this.messageService.add({severity: 'info', summary: 'Cancelled', detail: 'Product deletion cancelled'});
+      }
+    });
+  }
+
+  // Ürünü siler ve Toast mesajı gösterir
+  deleteProduct(id: number, title: string) {
+    this._productService.deleteProduct(id);  // Ürünü sil
+    this.productList = this.productList.filter(product => product.id !== id);  // Listeyi güncelle
+    // Ürün silindikten sonra toast mesajını göster
+    this.messageService.add({severity: 'success', summary: 'Success', detail: `${title} deleted successfully.`});
   }
 
   deneme(product: ProductModel) {

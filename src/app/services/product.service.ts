@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { ProductModel } from '../models/ProductModel';
+import { Category, ProductModel } from '../models/ProductModel';
 import { BehaviorSubject, Observable, of } from 'rxjs';
+import { log } from 'console';
+import { CategoryRoute } from '../models/Category';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +10,16 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 export class ProductService {
   private localStorageKey = 'productList';
   private productList: ProductModel[] = []; 
-  private categoryList: string[] = ['ALL PRODUCTS','Mobile Phones', 'Laptops', 'Cameras', 'Audio & Headphones']; 
+  private categoryList: CategoryRoute[] = [
+    new CategoryRoute(Category.AllProducts, 'all-products'),
+    new CategoryRoute(Category.MobilePhones, 'mobile-phones'),
+    new CategoryRoute(Category.Laptops, 'laptops'),
+    new CategoryRoute(Category.Cameras, 'cameras'),
+    new CategoryRoute(Category.AudioHeadphones, 'audio-headphones')
+  ];
 
   private productListSubject = new BehaviorSubject<ProductModel[]>(this.productList);
-  private categoryListSubject = new BehaviorSubject<string[]>(this.categoryList);
+  private categoryListSubject = new BehaviorSubject<CategoryRoute[]>(this.categoryList);
 
   constructor() {
     this.loadProductsFromLocalStorage(); 
@@ -23,16 +31,25 @@ export class ProductService {
   }
 
 
-  getCategories(): Observable<string[]> {
+  getCategories(): Observable<CategoryRoute[]> {
     return this.categoryListSubject.asObservable();
   }
 
 
   getCategoryProducts(category: string): Observable<ProductModel[]> {
-    const filteredProducts = this.productList.filter(product => product.category === category);
+    let selectedCategory = ""
+    this.categoryList.forEach(a => {
+      if (a.route == category) {
+        selectedCategory = a.category.toString()
+      }
+    })
+    if (selectedCategory === Category.AllProducts.toString()) {
+      return of(this.productList); // Tüm ürünleri döndür
+    }
+    const filteredProducts = this.productList.filter(product => product.category === selectedCategory);
     return of(filteredProducts);
   }
-
+  
 
   addProduct(newProduct: ProductModel): void {
 
@@ -47,8 +64,10 @@ export class ProductService {
   }
 
 
-  updateProduct(id: number, updatedData: Partial<ProductModel>): void {
+  updateProduct(id: number, updatedData: ProductModel): void {
     const index = this.productList.findIndex(product => product.id === id);
+    console.log(id, updatedData);
+    
     if (index !== -1) {
       this.productList[index] = { ...this.productList[index], ...updatedData };
       this.saveProductsToLocalStorage();

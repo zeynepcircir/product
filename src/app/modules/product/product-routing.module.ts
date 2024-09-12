@@ -7,11 +7,12 @@ import { ProductMainComponent } from 'src/app/layout/product-main/product-main.c
 const routes: Routes = [
   {
     path: "",
-    component: ProductMainComponent,
-    children: [
-      {path: 'home/product/:categoryName', component: ProductTableComponent},
-
-    ]
+    redirectTo: "all-products",  // Boş rotaya gelirse all-products a yönlendirme
+    pathMatch: "full"
+  },
+  {
+    path: ":categoryName",
+    component: ProductTableComponent,
   },
 ];
 @NgModule({

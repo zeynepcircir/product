@@ -10,6 +10,7 @@ export class ProductModel {
   rating: RatingModel | null = null;
 }
 export enum Category {
+  AllProducts = 'All Products',
   MobilePhones = 'Mobile Phones',
   Laptops = 'Laptops',
   Cameras = 'Cameras',

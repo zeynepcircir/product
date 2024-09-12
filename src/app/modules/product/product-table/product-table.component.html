@@ -1,29 +1,31 @@
+<p-confirmDialog></p-confirmDialog>
+<p-toast></p-toast>
 <div style="margin-bottom: 20px; margin-right: 1.3rem; display: flex; justify-content: end;">
-    <button  (click)="showAddProductDialog()" pButton pRipple type="button" label="Product Add" icon="pi pi-plus"></button>
+    <button (click)="showAddProductDialog()" pButton pRipple type="button" label="Product Add"
+        icon="pi pi-plus"></button>
 </div>
 
 <div>
-    
-    <p-table appHighlight [value]="productList" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5,10,25,50]"
+    <p-table *ngIf="productList.length > 0; else noDataTemplate" appHighlight [value]="productList" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5,10,25,50]"
         [scrollable]="true" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
         <ng-template pTemplate="header">
             <tr>
                 <th pResizableColumn pSortableColumn="id">{{ 'Id' }}<p-sortIcon field="id"></p-sortIcon>
                 </th>
                 <th pResizableColumn>{{ 'Title' }} <p-columnFilter type="text" field="title"
-                        display="title"></p-columnFilter> 
-                <th pResizableColumn >{{ 'Category' }} <p-columnFilter type="text"
-                        field="category" display="category"></p-columnFilter>
+                        display="title"></p-columnFilter>
+                <th pResizableColumn>{{ 'Category' }} <p-columnFilter type="text" field="category"
+                        display="category"></p-columnFilter>
                 </th>
                 <th pResizableColumn pSortableColumn="price">{{ 'Price' }} <p-columnFilter type="boolean" field="id"
                         display="id"></p-columnFilter> <p-sortIcon field="price"></p-sortIcon></th>
-                <th pResizableColumn >{{ 'Description' }} <p-columnFilter type="text"
-                        field="description" display="description"></p-columnFilter></th>
-                <th pResizableColumn>{{ 'Image' }} 
+                <th pResizableColumn>{{ 'Description' }} <p-columnFilter type="text" field="description"
+                        display="description"></p-columnFilter></th>
+                <th pResizableColumn>{{ 'Image' }}
                 </th>
                 <th pResizableColumn pSortableColumn="rating">{{ 'Rating' }} <p-sortIcon field="rating"></p-sortIcon>
                 </th>
-                <th pResizableColumn>{{ 'Actions' }} 
+                <th pResizableColumn>{{ 'Actions' }}
                 </th>
             </tr>
         </ng-template>
@@ -37,20 +39,26 @@
                 <td class="img"><img [alt]="product?.image" [src]="product?.image" width="40px"
                         style="vertical-align: middle" />
                 </td>
-               
+
                 <td (click)="deneme(product)">
                     <p-rating [(ngModel)]="product.rating" [cancel]="false" [stars]="5" [disabled]="true"></p-rating>
 
 
                 </td>
+
                 <td style="display:flex; justify-content: center;">
-                    <p-button (click)="show(product)"  icon="pi pi-pencil"></p-button>
-                    <p-button (click)="deleteProduct(product.id)"  icon="pi pi-trash" ></p-button>
-                    
+
+                    <p-button (click)="show(product)" icon="pi pi-pencil"></p-button>
+                    <p-button (click)="confirmDelete(product)" icon="pi pi-trash"></p-button>
                 </td>
             </tr>
         </ng-template>
     </p-table>
+
+    <ng-template #noDataTemplate>
+        <div style="text-align: center; padding: 2rem;">
+            <p class="no-data-message">Could not found data</p>
+        </div>
+    </ng-template>
 </div>
 
-<ng-template #emptyData></ng-template>

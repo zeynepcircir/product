@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductTableComponent } from '../product-table/product-table.component';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Category, ProductModel } from 'src/app/models/ProductModel';
 
 @Component({
@@ -23,15 +23,26 @@ previewImage: string | ArrayBuffer | null = null;
   }));
 
   profileForm = new FormGroup({
-    category: new FormControl(''),
-    description: new FormControl(''),
-    image: new FormControl(''),
-    price: new FormControl(''),
-    title: new FormControl(''),
-    id: new FormControl(''),
-    rating: new FormControl(0) 
+    category: new FormControl('', Validators.required),
+    description: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(20),
+      Validators.pattern('^[a-zA-Z0-9 .,!?]*$')
+    ]),
+    image: new FormControl('', Validators.required),
+    price: new FormControl('', [
+      Validators.required,
+      Validators.pattern('^[0-9]+$'),
+      Validators.maxLength(10)
+    ]),
+    title: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(30),
+      Validators.pattern('^[a-zA-Z0-9 ]*$')
+    ]),
+    rating: new FormControl(0, [Validators.required, Validators.min(0), Validators.max(5)])
   });
-
+  
   constructor(
     private dynamicDialogRef: DynamicDialogRef,
     dynamicDialogConfig: DynamicDialogConfig

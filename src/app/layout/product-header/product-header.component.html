@@ -6,7 +6,7 @@
                     routerLink="/product-card/">
             </li> &nbsp;
             <li *ngFor="let category of categoryList" class="list">
-                <a (click)="handleClick(category)"> {{ category }}</a>
+                <a (click)="handleClick(category.route)"> {{ category.category.toString() }}</a>
             </li>
         </ul>
     </nav>

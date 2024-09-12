@@ -18,7 +18,9 @@ import { ProductAddComponent } from './product-add/product-add.component';
 import { PaginatorModule } from 'primeng/paginator';
 import {RatingModule} from 'primeng/rating';
 import {InputTextareaModule} from 'primeng/inputtextarea';
-
+import { ConfirmationService, MessageService } from 'primeng/api';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ToastModule} from 'primeng/toast';
 @NgModule({
   declarations: [
     ProductComponent,
@@ -41,9 +43,11 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
     FileUploadModule,
     RatingModule,
     PaginatorModule,
-    InputTextareaModule
+    InputTextareaModule,
+    ConfirmDialogModule,
+    ToastModule
   ],
-  providers: [DialogService],
+  providers: [DialogService,ConfirmationService,MessageService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ProductModule { }

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { CategoryRoute } from 'src/app/models/Category';
 import { ProductModel } from 'src/app/models/ProductModel';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -10,8 +11,8 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductHeaderComponent implements OnInit {
 
-  categoryList: string[] = [];
-
+  categoryList: CategoryRoute[] = [];
+  isMenuOpen =   false
   @Output() productsBySelectedCategory = new EventEmitter<ProductModel[]>();
 
 
@@ -25,8 +26,12 @@ export class ProductHeaderComponent implements OnInit {
   }
 
   handleClick(event: string | null) {
-        this._route.navigate(['/home/product/' + event]);
-    
+    this._route.navigate(['/home/product/' + event]);
+    this.isMenuOpen = false; // Menüye tıklayınca menüyü kapat
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen; // Menüyü açıp kapatma
   }
 
   getCategories() {
