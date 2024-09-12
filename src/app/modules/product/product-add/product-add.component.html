@@ -1,13 +1,13 @@
 <div>
     <form [formGroup]="profileForm" style="display: flex; flex-direction: column;">
-  
+      
       <div class="p-field p-col-12 p-md-6">
         <label for="category">Category</label>
         <span class="p-float-label">
           <input type="text" id="category" pInputText formControlName="category" />
         </span>
       </div>
-      
+  
       <div class="p-field p-col-12">
         <label for="description">Description</label>
         <span class="p-float-label">
@@ -24,7 +24,10 @@
   
       <div class="p-field p-col-12 p-md-6">
         <label>Upload Image</label>
-        <p-fileUpload name="myfile[]" url="./upload.php" (onUpload)="onUpload($event)" chooseLabel="Select Image" mode="basic"></p-fileUpload>
+        <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+        <div *ngIf="previewImage">
+          <img [src]="previewImage" alt="Preview" style="width: 150px; height: auto;" />
+        </div>
       </div>
   
       <div class="p-field p-col-12 p-md-6">
@@ -40,11 +43,17 @@
           <input type="text" id="title" pInputText formControlName="title" />
         </span>
       </div>
+
+      <div class="p-field p-col-12 p-md-6">
+        <label for="rating">Rating</label>
+        <p-rating formControlName="rating" [cancel]="false" [stars]="5"></p-rating>
+      </div>
+    
   
     </form>
   
-
-    <button pButton type="button" label="Save" class="p-button-outlined p-button-secondary" (click)="save()"></button> &nbsp;
-    <button pButton type="button" label="Cancel" class="p-button-outlined p-button-secondary" (click)="cancel()"></button>
-  </div>
-  
+    <div class="buttons">
+      <button pButton type="button" label="Save" class="p-button-outlined p-button-secondary" (click)="save()"></button> &nbsp;
+      <button pButton type="button" label="Cancel" class="p-button-outlined p-button-secondary" (click)="cancel()"></button>
+    </div>
+</div>

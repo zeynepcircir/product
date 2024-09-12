@@ -9,6 +9,8 @@ import { ButtonModule } from 'primeng/button';
 import { RouterModule } from '@angular/router';
 import { ProductModule } from './modules/product/product.module';
 import { LayoutModule } from './layout/layout.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -22,7 +24,8 @@ import { LayoutModule } from './layout/layout.module';
     ButtonModule,
     RouterModule,
     ProductModule,
-    LayoutModule
+    LayoutModule,
+    BrowserAnimationsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

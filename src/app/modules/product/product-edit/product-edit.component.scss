@@ -1,15 +1,19 @@
-input {
+.p-field {
     margin-bottom: 1rem;
-    border: 3px thin rgb(0, 0, 0);
-    background-color: rgb(255, 255, 255);
-    height: 3rem;
-}
-
-label {
+  }
+  
+  .p-float-label input, .p-float-label textarea {
+    width: 100%;
+  }
+  
+  .p-float-label label {
+    font-size: 0.8rem;
+    color: #555;
+  }
+  
+  label {
+    display: block;
     margin-bottom: 0.5rem;
-    color: rgb(83, 83, 83);
-}
-
-.cancelButton{
-    width: 20px;
-}
+    font-weight: bold;
+  }
+  

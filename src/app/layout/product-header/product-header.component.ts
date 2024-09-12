@@ -21,13 +21,11 @@ export class ProductHeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log("SELAMLAR")
     this.getCategories();
   }
 
   handleClick(event: string | null) {
-      console.log('EVENTE TIKLANDI', event);
-        this._route.navigate(['/product-card/' + event]);
+        this._route.navigate(['/home/product/' + event]);
     
   }
 

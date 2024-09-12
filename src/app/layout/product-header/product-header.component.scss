@@ -1,64 +1,78 @@
-
-
-
-@media screen and (max-width: 768px){
-  
-    .btn-div{
-      
-     
-      overflow-x: scroll;
-      
-    }
-  
+/* Temel Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+body {
+  font-family: Arial, sans-serif; /* Font tipini ayarla */
+  background-color: #f4f4f4; /* Sayfanın genel arka plan rengi */
+}
 
+@media screen and (max-width: 768px){
+  .btn-div{
+    overflow-x: scroll;
+  }
+}
 
 nav {
-  background-color: #ffffff; 
+  background-color: #ffffff; /* Canlı bir arka plan rengi */
   cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Daha ince bir gölge */
+  border: 1px solid #d7d1d1; /* Beyaz çerçeve ekle */
+  padding: 5px 20px; /* Üst ve alt padding ekle */
+  margin-bottom: 15px;
+  border-radius: 10px; /* Kenarları yuvarlak yap */
 }
 
 nav .container {
-  width: 80%; 
-  margin: 0 auto; 
+  width: 80%;
+  margin: 0 auto;
 }
 
 nav ul {
   list-style-type: none;
-  margin-top: 50px;
+  margin: 0;
   padding: 0;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  flex-wrap: wrap; 
 }
 
 nav ul li {
   display: inline-block;
-  margin-right: 100px; 
+  margin: 0 20px; /* Liste elemanları arasında azalan boşluk */
 }
 
 nav ul li:last-child {
-  margin-right: 0; 
+  margin-right: 0;
 }
 
 nav ul li a {
   display: block;
-  color: #000000; 
+  color: #000000; /* Beyaz renkli metin */
   text-decoration: none;
-  padding: 10px 15px;
-  font-size: 1.125rem;
-  font-weight: 400!important;
+  padding: 5px 10px; /* Padding değerlerini azalt */
+  font-size: 1rem; /* Font boyutunu düşür */
+  font-weight: 500; /* Font kalınlığını azalt */
+  transition: all 0.3s ease; 
 }
 
 nav ul li a:hover {
-  background-color: #f2f2f2; 
+  background-color: #ffffff; /* Hover durumunda daha koyu bir renk */
+  color: #000000;
+  border-radius: 10px;
 }
 
-.logo{
-  height: 60px;
+.logo {
+  height: 40px; /* Logo boyutunu küçült */
   display: flex;
   justify-content: flex-start;
-  margin-left: 10rem;
+  margin-left: 1rem; /* Logo için azalan margin değeri */
 }
 
-.list{
-  margin-left: 2rem;
+.list {
+  margin-left: 1rem; /* Liste elemanları için azalan margin değeri */
 }

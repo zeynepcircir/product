@@ -6,6 +6,8 @@ import { ProductService } from 'src/app/services/product.service';
 import { DialogService } from 'primeng/dynamicdialog';
 import { filter } from 'rxjs';
 import { ProductEditComponent } from '../product-edit/product-edit.component';
+import { ProductAddComponent } from '../product-add/product-add.component'; // Add import
+
 @Component({
   selector: 'app-product-table',
   templateUrl: './product-table.component.html',
@@ -25,9 +27,8 @@ export class ProductTableComponent implements OnInit {
     private _activatedRoute: ActivatedRoute
   ) {}
 
-
+  // Show Product Edit Dialog
   show(product: ProductModel) {
-    console.log(product);
     this.dialogService
       .open(ProductEditComponent, {
         header: 'Edit Product',
@@ -38,13 +39,28 @@ export class ProductTableComponent implements OnInit {
       })
       .onClose.subscribe((updatedProduct: ProductModel) => {
         if (updatedProduct) {
-          // Güncellenmiş ürün bilgisini alıp tablodaki ilgili ürünü güncelliyoruz
-          let index = this.productList.findIndex(
-            (pr) => pr.id === updatedProduct.id
-          );
+          const index = this.productList.findIndex((pr) => pr.id === updatedProduct.id);
           if (index !== -1) {
+            this._productService.updateProduct(updatedProduct.id!, updatedProduct); // Güncellenmiş ürünü servise gönderiyoruz
             this.productList[index] = updatedProduct;
           }
+        }
+      });
+  }
+
+  // Show Product Add Dialog
+  showAddProductDialog() {
+    this.dialogService
+      .open(ProductAddComponent, {
+        header: 'Add Product',
+        width: '70%',
+        contentStyle: { 'max-height': '500px', overflow: 'auto' },
+        baseZIndex: 10000,
+      })
+      .onClose.subscribe((newProduct: ProductModel) => {
+        if (newProduct) {
+          this._productService.addProduct(newProduct); // Yeni ürünü servise ekliyoruz
+          this.productList.push(newProduct);
         }
       });
   }
@@ -57,14 +73,11 @@ export class ProductTableComponent implements OnInit {
       this.getProductByCategory();
     });
 
-    // URL'deki değişimleri tespit ediyorum (categoryName parametresini almak için)
     this._route.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event) => {
-        console.log('EVENT: ', event);
         if (event instanceof NavigationEnd) {
-          this.categoryName =
-            this._activatedRoute.snapshot.paramMap.get('categoryName') || '';
+          this.categoryName = this._activatedRoute.snapshot.paramMap.get('categoryName') || '';
           this.getProductByCategory();
         }
       });
@@ -72,26 +85,22 @@ export class ProductTableComponent implements OnInit {
 
   getProductByCategory() {
     if (this.categoryName) {
-      this._productService.getProducts().subscribe((response) => {
-        this.productList = response.filter(
-          (element) => element.category === this.categoryName
-        );
+      this._productService.getCategoryProducts(this.categoryName).subscribe((filteredProducts) => {
+        this.productList = filteredProducts;
       });
     } else {
-      this._productService.getProducts().subscribe((response) => {
-        this.productList = response;
+      this._productService.getProducts().subscribe((products) => {
+        this.productList = products;
       });
     }
   }
 
-  deleteProduct(id: string) {
-    this._productService.deleteProducts(id).subscribe(() => {
-      console.log('Ürün silindi');
-      const index = this.productList.findIndex((product) => product.id);
-      if (index !== -1) {
-        this.productList.splice(index, 1);
-      }
-    });
+  updateRating(product: ProductModel) {
+    this._productService.updateProduct(product.id!, product); // Serviste ürünü güncelliyoruz
   }
-
+  
+  deleteProduct(id: number) {
+    this._productService.deleteProduct(id); // Mock veri listesinden ürünü siliyoruz
+    this.productList = this.productList.filter(product => product.id !== id); // Arayüzdeki listeyi de güncelliyoruz
+  }
 }

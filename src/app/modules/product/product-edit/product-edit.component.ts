@@ -11,6 +11,7 @@ import { ProductModel } from 'src/app/models/ProductModel';
 })
 export class ProductEditComponent implements OnInit {
 
+  uploadedFiles: any[] = []
   product: ProductModel | null = null;
   value1: string = '';
 
@@ -44,4 +45,11 @@ export class ProductEditComponent implements OnInit {
     this.dynamicDialogRef.close(this.profileForm.getRawValue());
   }
 
+
+  onUpload(event: any) {
+    for(let file of event.files) {
+        this.uploadedFiles.push(file);
+    }
+
+}
 }

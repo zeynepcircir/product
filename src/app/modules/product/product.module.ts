@@ -11,14 +11,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogService } from 'primeng/dynamicdialog';
 import { ChipModule } from 'primeng/chip';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { InputTextModule } from "primeng/inputtext";
+import {FileUploadModule} from 'primeng/fileupload';
+import { DropdownModule } from "primeng/dropdown";
+import { ProductAddComponent } from './product-add/product-add.component';
 
-
+import {RatingModule} from 'primeng/rating';
 
 @NgModule({
   declarations: [
     ProductComponent,
     ProductTableComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    ProductAddComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +34,11 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     ReactiveFormsModule,
     AccordionModule,
     ChipModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    DropdownModule,
+    InputTextModule,
+    FileUploadModule,
+    RatingModule
   ],
   providers: [DialogService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
