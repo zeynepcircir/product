@@ -3,8 +3,8 @@
 Bu proje [Angular CLI](https://github.com/angular/angular-cli) kullanılarak Angular sürüm 14.1.3 ile oluşturulmuştur.
 
 ## Özellikler
-- **Ürün Ekleme**: Projede veriler LOCAL STORAGE'da tutulmaktadır, kendiniz ürün ekleyerek deneyebilirsiniz.
-- **Görsel Ekleme**: Ürün ekleme butonu üzerinden ulaşabileceğiniz modalde görsel eklerken seçtiğiniz görselin butonun üstüne tıklayarak önizlemesini görebilirsiniz, böylece görsel kaydedilmiş olacaktır..
+- **Ürün Ekleme**: Projede veriler Locale Storage'da tutulmaktadır, kendiniz ürün ekleyerek deneyebilirsiniz.
+- **Görsel Ekleme**: Ürün ekleme butonuna tıkladığınızda açılan modalde, görsel eklerken seçtiğiniz görselin butonun üzerine tıklayarak önizlemesini görebilirsiniz. Bu işlemle görsel kaydedilecektir.
 - **Navbar**: Kategori bağlantıları ve ürün listeleme sayfasına yönlendiren bir logo ile temel bir navigasyon çubuğu tasarlandı.
 - **Ürün Listeleme**: Ürünler, sayfalama (pagination) ile 5'erli olarak listelendi.
 - **Oylama ve Sıralama**: Ürünler için oylama ve sıralama özellikleri eklendi.
@@ -19,7 +19,7 @@ Bu proje [Angular CLI](https://github.com/angular/angular-cli) kullanılarak Ang
 
 ## Mock Data
 
-Ürün listesi için örnek veriler, bu verileri local storage'a ekleyebilirsiniz(görselleri kendiniz eklemelisiniz).
+Aşağıdaki örnek verileri Local Storage'a ekleyebilirsiniz (görselleri kendiniz eklemelisiniz).
 
 ```json
 [
