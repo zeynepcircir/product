@@ -7,8 +7,7 @@ import { Category, ProductModel } from 'src/app/models/ProductModel';
 @Component({
   selector: 'app-product-edit',
   templateUrl: './product-edit.component.html',
-  styleUrls: ['./product-edit.component.scss'],
-  providers: [DynamicDialogRef, DynamicDialogConfig]
+  styleUrls: ['./product-edit.component.scss']
 })
 export class ProductEditComponent implements OnInit {
 previewImage: string | ArrayBuffer | null = null; 
@@ -16,8 +15,6 @@ previewImage: string | ArrayBuffer | null = null;
   product: ProductModel | null = null;
   value1: string = '';
 
-
-   // Dropdown için Kategori Seçenekleri
   categoryOptions = Object.keys(Category).map(key => ({
     label: Category[key as keyof typeof Category],
     value: Category[key as keyof typeof Category]
@@ -48,7 +45,6 @@ previewImage: string | ArrayBuffer | null = null;
     private dynamicDialogRef: DynamicDialogRef,
     dynamicDialogConfig: DynamicDialogConfig
   ) {
-    console.log(dynamicDialogConfig.data);
     this.product = dynamicDialogConfig.data;
     this.profileForm.patchValue(dynamicDialogConfig.data);
   }
@@ -66,21 +62,20 @@ previewImage: string | ArrayBuffer | null = null;
   }
 
   onUpload(event: any) {
-    const file = event.files[0]; 
+    const file = event.files[0];  
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
         if (typeof reader.result === 'string') {
-          this.previewImage = reader.result; 
+          this.previewImage = reader.result;  
           this.profileForm.patchValue({
             image: reader.result  
           });
         }
       };
-      reader.readAsDataURL(file);  
+      reader.readAsDataURL(file); 
     }
   }
   
   
 }
-

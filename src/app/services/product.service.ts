@@ -66,7 +66,6 @@ export class ProductService {
 
   updateProduct(id: number, updatedData: ProductModel): void {
     const index = this.productList.findIndex(product => product.id === id);
-    console.log(id, updatedData);
     
     if (index !== -1) {
       this.productList[index] = { ...this.productList[index], ...updatedData };

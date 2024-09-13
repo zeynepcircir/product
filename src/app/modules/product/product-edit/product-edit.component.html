@@ -1,9 +1,9 @@
 <div class="col-12">
   <form [formGroup]="profileForm" style="display: flex; flex-direction: row; ">
   
-    <!-- Sol Sütun -->
+
     <div class="col-6   pe-lg-3">
-      <!-- Category -->
+
       <div class="p-field p-col-12 p-md-6">
         <label for="category">Category:</label>
         <p-dropdown 
@@ -16,7 +16,7 @@
         </small>
       </div>
 
-      <!-- Description -->
+
       <div class="p-field p-col-12">
         <label for="description">Description:</label>
         <span class="p-float-label">
@@ -27,7 +27,7 @@
         </small>
       </div>
 
-      <!-- Upload Image -->
+
       <div class="p-field p-col-12 p-md-6">
         <label>Upload Image:</label>
         <p-fileUpload 
@@ -48,9 +48,9 @@
       </div>
     </div>
     
-    <!-- Sağ Sütun -->
+
     <div class="col-6 ps-lg-3">
-      <!-- Price -->
+
       <div class="p-field p-col-12 p-md-6">
         <label for="price">Price:</label>
         <span class="p-float-label">
@@ -61,7 +61,7 @@
         </small>
       </div>
 
-      <!-- Title -->
+
       <div class="p-field p-col-12 p-md-6">
         <label for="title">Title:</label>
         <span class="p-float-label">
@@ -72,7 +72,7 @@
         </small>
       </div>
 
-      <!-- Rating -->
+
       <div class="p-field p-col-12 p-md-6">
         <label for="rating">Rating:</label>
         <p-rating formControlName="rating" [cancel]="false" [stars]="5"></p-rating>
@@ -82,6 +82,8 @@
       </div>
     </div>
   </form>
+
+
 
   <div class="buttons" style="margin-top: 1rem;">
    

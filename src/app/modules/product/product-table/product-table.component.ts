@@ -130,7 +130,6 @@ export class ProductTableComponent implements OnInit {
 
 
   deleteProduct(product: ProductModel) {
-    console.log(product)
 
     this.confirmationService.confirm({
       message: 'Are you sure you want to delete??',
@@ -150,17 +149,13 @@ export class ProductTableComponent implements OnInit {
 
   }
 
-  deneme(product: ProductModel) {
-    console.log(product)
-  }
-
+  
   showImageDialog(productModel: ProductModel) {
     this.selectedProductModel = productModel;
     this.displayImageDialog = true;
   }
 
   onPageChange(event: any) {
-console.log(event)
     throw new Error('Method not implemented.');
     }
 }
