@@ -3,9 +3,10 @@
 Bu proje [Angular CLI](https://github.com/angular/angular-cli) kullanılarak Angular sürüm 14.1.3 ile oluşturulmuştur.
 
 
-
- <img src="![image](https://github.com/user-attachments/assets/f5464956-cf1b-4cea-8c6f-2a9cde4bf168)
+ <img src="![Screenshot 2024-09-13 174226](https://github.com/user-attachments/assets/f1268fae-a3a0-49a7-b311-ee7e11843e4f)
 " alt="Image 3" width="1000">
+
+
 
 ## Özellikler
 - **Ürün Ekleme**: Projede veriler Locale Storage'da tutulmaktadır, kendiniz ürün ekleyerek deneyebilirsiniz.
