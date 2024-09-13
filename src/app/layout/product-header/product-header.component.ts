@@ -10,11 +10,9 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./product-header.component.scss']
 })
 export class ProductHeaderComponent implements OnInit {
-
   categoryList: CategoryRoute[] = [];
-  isMenuOpen =   false
   @Output() productsBySelectedCategory = new EventEmitter<ProductModel[]>();
-
+  isMobileMenuOpen: boolean = false;
 
   constructor(
     private productService: ProductService,
@@ -25,23 +23,23 @@ export class ProductHeaderComponent implements OnInit {
     this.getCategories();
   }
 
-  handleClick(event: string | null) {
-    this._route.navigate(['/home/product/' + event]);
-    this.isMenuOpen = false; // Menüye tıklayınca menüyü kapat
+  handleClick(route: string | null) {
+    if (route) {
+      this._route.navigate(['/home/product/' + route]);
+    }
+    this.isMobileMenuOpen = false; 
   }
 
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen; // Menüyü açıp kapatma
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;  
   }
 
   getCategories() {
     this.productService.getCategories().subscribe((response) => {
       this.categoryList = response;
-      // Tüm ürünleri çekmek için
       this.productService.getProducts().subscribe((products) => {
         this.productsBySelectedCategory.emit(products);
       });
     });
   }
-
 }

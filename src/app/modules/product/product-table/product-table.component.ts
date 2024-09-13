@@ -11,12 +11,12 @@ import { ProductAddComponent } from '../product-add/product-add.component';
 @Component({
   selector: 'app-product-table',
   templateUrl: './product-table.component.html',
-  styleUrls: ['./product-table.component.scss']
+  styleUrls: ['./product-table.component.scss'],
+  providers: [DialogService, ConfirmationService, MessageService]
 })
 
 export class ProductTableComponent implements OnInit {
 
-  viewMode: 'cards' | 'table' = 'cards';
   productList: ProductModel[] = [];
   categoryName: string = '';
   displayImageDialog: boolean = false;
@@ -58,7 +58,6 @@ export class ProductTableComponent implements OnInit {
       });
   }
 
-  // Show Product Add Dialog
   showAddProductDialog() {
     this.dialogService
       .open(ProductAddComponent, {
@@ -69,8 +68,6 @@ export class ProductTableComponent implements OnInit {
       })
       .onClose.subscribe((newProduct: ProductModel) => {
         if (newProduct) {
-          this._productService.addProduct(newProduct);
-          this.productList.push(newProduct);
         }
       });
   }
@@ -90,7 +87,7 @@ export class ProductTableComponent implements OnInit {
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event) => {
         if (event instanceof NavigationEnd) {
-          this.categoryName = this._activatedRoute.snapshot.paramMap.get('categoryName') || 'all-products';
+          this.categoryName = this._activatedRoute?.snapshot?.paramMap?.get('categoryName') || 'all-products';
           this.getProductByCategory();
         }
       });
@@ -115,37 +112,36 @@ export class ProductTableComponent implements OnInit {
   
   confirmDelete(product: any) {
     if (!product || !product.id) {
-      return;  // Ürün geçersizse işlemi sonlandır
+      return;  
     }
     this.confirmationService.confirm({
       message: `Are you sure you want to delete ${product.title}?`,
       header: 'Confirmation',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        // Kullanıcı silme işlemini kabul ederse
+
         this.deleteProduct(product);
       },
       reject: () => {
-        // İptal işlemi yapıldığında toast mesajı
         this.messageService.add({severity: 'info', summary: 'Cancelled', detail: 'Product deletion cancelled'});
       }
     });
   }
 
-  // Ürünü siler ve Toast mesajı gösterir
+
   deleteProduct(product: ProductModel) {
     console.log(product)
 
     this.confirmationService.confirm({
-      message: 'Silmek istiyor öusunuz?',
+      message: 'Are you sure you want to delete??',
       header: 'Confirmation',
       icon:'',
       accept:() => {
          if(product.id){
-    this._productService.deleteProduct(product.id);  // Ürünü sil
-    this.productList = this.productList.filter(product => product.id !== product.id);  // Listeyi güncelle
+    this._productService.deleteProduct(product.id); 
+    this.productList = this.productList.filter(product => product.id !== product.id);  
  
-    // Ürün silindikten sonra toast mesajını göster
+
     this.messageService.add({severity: 'success', summary: 'Success', detail: `${product.title} deleted successfully.`});
     this.fetch()}
       }
@@ -162,4 +158,9 @@ export class ProductTableComponent implements OnInit {
     this.selectedProductModel = productModel;
     this.displayImageDialog = true;
   }
+
+  onPageChange(event: any) {
+console.log(event)
+    throw new Error('Method not implemented.');
+    }
 }

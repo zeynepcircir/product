@@ -7,7 +7,8 @@ import { Category, ProductModel } from 'src/app/models/ProductModel';
 @Component({
   selector: 'app-product-edit',
   templateUrl: './product-edit.component.html',
-  styleUrls: ['./product-edit.component.scss']
+  styleUrls: ['./product-edit.component.scss'],
+  providers: [DynamicDialogRef, DynamicDialogConfig]
 })
 export class ProductEditComponent implements OnInit {
 previewImage: string | ArrayBuffer | null = null; 
@@ -65,18 +66,18 @@ previewImage: string | ArrayBuffer | null = null;
   }
 
   onUpload(event: any) {
-    const file = event.files[0];  // İlk dosyayı alıyoruz
+    const file = event.files[0]; 
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
         if (typeof reader.result === 'string') {
-          this.previewImage = reader.result;  // Görselin önizlemesi için
+          this.previewImage = reader.result; 
           this.profileForm.patchValue({
-            image: reader.result  // Görseli base64 formatında form verisine ekliyoruz
+            image: reader.result  
           });
         }
       };
-      reader.readAsDataURL(file);  // Görseli base64 formatına çeviriyoruz
+      reader.readAsDataURL(file);  
     }
   }
   

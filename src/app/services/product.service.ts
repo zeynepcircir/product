@@ -44,7 +44,7 @@ export class ProductService {
       }
     })
     if (selectedCategory === Category.AllProducts.toString()) {
-      return of(this.productList); // Tüm ürünleri döndür
+      return of(this.productList);
     }
     const filteredProducts = this.productList.filter(product => product.category === selectedCategory);
     return of(filteredProducts);

@@ -3,10 +3,11 @@
 
 
     
-<div style="margin-bottom: 20px; margin-right: 1.3rem; display: flex; justify-content: end;"></div>
+
+<div style="display: flex; justify-content: flex-end; margin-right: 1rem; margin-bottom: 1rem;">
 <button class="p-button-sm" (click)="showAddProductDialog()" pButton pRipple type="button" label="Product Add"
     icon="pi pi-plus"></button>
-
+</div>
 
 
 
@@ -24,30 +25,38 @@
                     <th pResizableColumn pSortableColumn="title">
                         <div class="header-with-sort-filter">
                             Title
+                            <div style="margin-left: 1rem; display: inline-flex; flex-direction: row;">
                             <p-sortIcon field="title"></p-sortIcon>
                             <p-columnFilter type="text" field="title" display="menu"></p-columnFilter>
+                        </div>
                         </div>
                     </th>
                     <th pResizableColumn pSortableColumn="category">
                         <div class="header-with-sort-filter">
                             Category
+                            <div  style="margin-left: 1rem;display: inline-flex; flex-direction: row;">
                             <p-sortIcon field="category"></p-sortIcon>
                             <p-columnFilter type="text" field="category" display="menu"></p-columnFilter>
+                        </div>
                         </div>
                     </th>
                     <th pResizableColumn pSortableColumn="price">
                         <div class="header-with-sort-filter">
                             Price
+                            <div  style="margin-left: 1rem; display: inline-flex; flex-direction: row;">
                             <p-sortIcon field="price"></p-sortIcon>
                             <p-columnFilter type="text" field="price" display="menu"></p-columnFilter>
+                        </div>
                         </div>
                     </th>
                     <th pResizableColumn pSortableColumn="description">
                         <div class="header-with-sort-filter">
                             Description
+                            <div  style="margin-left: 1rem; display: inline-flex; flex-direction: row;">
                             <p-sortIcon field="description"></p-sortIcon>
                             <p-columnFilter type="text" field="description" display="menu"></p-columnFilter>
-                        </div>
+                       </div> 
+                    </div>
                     </th>
                     <th>Image</th>
                     <th pResizableColumn pSortableColumn="rating">
@@ -80,12 +89,10 @@
                     </td>
                 </tr>
             </ng-template>
+            
         </p-table>
-    
+      
     </div>
-
-    
-
     <p-dialog [(visible)]="displayImageDialog" [resizable]="false" [draggable]="false" [modal]="true" [closable]="true"
         [style]="{width: 'auto'}" header="{{'Product Image: ' + selectedProductModel?.title}}">
         <img [src]="selectedProductModel?.image" alt="Product Image" style="width: 100%; max-width: 400px;" />

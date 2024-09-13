@@ -6,7 +6,6 @@
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
-        -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         display: flex;
         justify-content: center;
@@ -115,32 +114,46 @@
 }
 
 .no-data-message {
-    font-family: 'Arial', sans-serif; /* Yazı tipi */
-    font-size: 1.5rem; /* Yazı tipi boyutu */
-    font-weight: bold; /* Kalın yazı */
-    color: #666; /* Yazı rengi */
-    text-align: center; /* Yazı ortalaması */
-    margin-top: 2rem; /* Üstten boşluk */
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    color: #666; 
+    text-align: center; 
+    margin-top: 2rem; 
   }
 
   .header-with-sort-filter {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 0.5rem;
-}
-
-.p-column-filter, .pi-sort {
-    margin-left: 10px; /* Sort ve filtre ikonlarının başlıktan biraz mesafede olması için */
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.p-sort {
-    margin-left: auto; /* Sort ikonunu sağa yaslayarak filtreyle aynı hizada olmasını sağlar */
+  
 }
 
 .p-column-title {
     font-weight: bold;
 }
 
+
+.p-button{
+    z-index: 9999;
+}
+
+
+.content-container {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.pagination-wrapper {
+    margin-top: 1rem; 
+}
+
+.p-table {
+    flex: 1; 
+}
+
+.content-container {
+    margin: 1rem;
+    padding-bottom: 50px; 
+}

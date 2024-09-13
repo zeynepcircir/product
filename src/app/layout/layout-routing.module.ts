@@ -9,7 +9,7 @@ const routes: Routes = [
     children: [
       {
         path: "",
-        redirectTo: "product",  // Boş geldiğinde yönlendirilecek rota
+        redirectTo: "product", 
         pathMatch: "full"
       },
       {
