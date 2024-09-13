@@ -25,7 +25,7 @@ export class ProductAddComponent implements OnInit {
     
     description: new FormControl('', [
       Validators.required, 
-      Validators.maxLength(20),
+      Validators.maxLength(500),
       Validators.pattern('^[a-zA-Z0-9 .,!?]*$') 
     ]), 
     

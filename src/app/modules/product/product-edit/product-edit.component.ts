@@ -24,7 +24,7 @@ previewImage: string | ArrayBuffer | null = null;
     category: new FormControl('', Validators.required),
     description: new FormControl('', [
       Validators.required,
-      Validators.maxLength(20),
+      Validators.maxLength(500),
       Validators.pattern('^[a-zA-Z0-9 .,!?]*$')
     ]),
     image: new FormControl('', Validators.required),
