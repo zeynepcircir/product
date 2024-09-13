@@ -115,7 +115,7 @@ export class ProductTableComponent implements OnInit {
       return;  
     }
     this.confirmationService.confirm({
-      message: `Are you sure you want to delete ${product.title}?`,
+      message: `Are you sure you want to delete ${product.title}`,
       header: 'Confirmation',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
@@ -132,7 +132,7 @@ export class ProductTableComponent implements OnInit {
   deleteProduct(product: ProductModel) {
 
     this.confirmationService.confirm({
-      message: 'Are you sure you want to delete??',
+      message: 'Are you sure you want to delete?',
       header: 'Confirmation',
       icon:'',
       accept:() => {
