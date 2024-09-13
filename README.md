@@ -17,7 +17,7 @@
 
  <img src="https://github.com/zeynepcircir/product/blob/master/src/assets/x.png?raw=true" alt="Image 3" width="800"> <br/>
 
-   <img src="[https://github.com/zeynepcircir/product/blob/master/src/assets/x.png?raw=true]" alt="Image 3" width="800">
+   <img src="https://github.com/zeynepcircir/product/blob/master/src/assets/x.png?raw=true" alt="Image 3" width="800">
  
 ## Mock Data
 
