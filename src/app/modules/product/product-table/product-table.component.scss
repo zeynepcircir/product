@@ -12,7 +12,6 @@
         justify-content: center;
     }
 }
-
 :host ::ng-deep {
     .p-paginator {
         .p-paginator-current {
@@ -25,7 +24,7 @@
         width: 1.6rem;
         height: 1.6rem;
     }
-    
+
     .p-datatable-scrollable .p-datatable-thead>tr>th{
         justify-content: center;
     }
@@ -76,7 +75,7 @@
         }
     }
 
-  
+
     .p-datatable-customers .p-datatable-tbody > tr > td .p-column-title {
         display: none;
     }
@@ -103,8 +102,8 @@
 
 
 .title-container {
-    height: fit-content; 
-    margin-bottom: 10px; 
+    height: fit-content;
+    margin-bottom: 10px;
 }
 
 
@@ -112,9 +111,8 @@
 .button{
     display: flex;
     justify-content: flex-end;
-    
-}
 
+}
 
 .no-data-message {
     font-family: 'Arial', sans-serif; /* Yazı tipi */
@@ -124,4 +122,25 @@
     text-align: center; /* Yazı ortalaması */
     margin-top: 2rem; /* Üstten boşluk */
   }
+
+  .header-with-sort-filter {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+}
+
+.p-column-filter, .pi-sort {
+    margin-left: 10px; /* Sort ve filtre ikonlarının başlıktan biraz mesafede olması için */
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.p-sort {
+    margin-left: auto; /* Sort ikonunu sağa yaslayarak filtreyle aynı hizada olmasını sağlar */
+}
+
+.p-column-title {
+    font-weight: bold;
+}
 

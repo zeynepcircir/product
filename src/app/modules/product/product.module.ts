@@ -8,7 +8,7 @@ import { TableModule } from 'primeng/table';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DialogService } from 'primeng/dynamicdialog';
+import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { ChipModule } from 'primeng/chip';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { InputTextModule } from "primeng/inputtext";
@@ -21,6 +21,8 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ToastModule} from 'primeng/toast';
+import {DialogModule} from 'primeng/dialog';
+
 @NgModule({
   declarations: [
     ProductComponent,
@@ -45,7 +47,9 @@ import {ToastModule} from 'primeng/toast';
     PaginatorModule,
     InputTextareaModule,
     ConfirmDialogModule,
-    ToastModule
+    ToastModule,
+    DynamicDialogModule,
+    DialogModule
   ],
   providers: [DialogService,ConfirmationService,MessageService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

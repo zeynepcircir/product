@@ -13,12 +13,16 @@ import { ProductAddComponent } from '../product-add/product-add.component';
   templateUrl: './product-table.component.html',
   styleUrls: ['./product-table.component.scss']
 })
+
 export class ProductTableComponent implements OnInit {
 
   viewMode: 'cards' | 'table' = 'cards';
   productList: ProductModel[] = [];
   categoryName: string = '';
+  displayImageDialog: boolean = false;
+  selectedProductModel: ProductModel | null = null;
 
+  
   constructor(
     private primengConfig: PrimeNGConfig,
     private _productService: ProductService,
@@ -26,8 +30,11 @@ export class ProductTableComponent implements OnInit {
     private dialogService: DialogService,
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
-    private _activatedRoute: ActivatedRoute
-  ) {}
+    private _activatedRoute: ActivatedRoute,
+    
+  ) {
+    
+  }
 
 
   show(product: ProductModel) {
@@ -104,8 +111,9 @@ export class ProductTableComponent implements OnInit {
   updateRating(product: ProductModel) {
     this._productService.updateProduct(product.id!, product); 
   }
+
+  
   confirmDelete(product: any) {
-    console.log("SELMALAR")
     if (!product || !product.id) {
       return;  // Ürün geçersizse işlemi sonlandır
     }
@@ -115,7 +123,7 @@ export class ProductTableComponent implements OnInit {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         // Kullanıcı silme işlemini kabul ederse
-        this.deleteProduct(product.id, product.title);
+        this.deleteProduct(product);
       },
       reject: () => {
         // İptal işlemi yapıldığında toast mesajı
@@ -125,14 +133,33 @@ export class ProductTableComponent implements OnInit {
   }
 
   // Ürünü siler ve Toast mesajı gösterir
-  deleteProduct(id: number, title: string) {
-    this._productService.deleteProduct(id);  // Ürünü sil
-    this.productList = this.productList.filter(product => product.id !== id);  // Listeyi güncelle
+  deleteProduct(product: ProductModel) {
+    console.log(product)
+
+    this.confirmationService.confirm({
+      message: 'Silmek istiyor öusunuz?',
+      header: 'Confirmation',
+      icon:'',
+      accept:() => {
+         if(product.id){
+    this._productService.deleteProduct(product.id);  // Ürünü sil
+    this.productList = this.productList.filter(product => product.id !== product.id);  // Listeyi güncelle
+ 
     // Ürün silindikten sonra toast mesajını göster
-    this.messageService.add({severity: 'success', summary: 'Success', detail: `${title} deleted successfully.`});
+    this.messageService.add({severity: 'success', summary: 'Success', detail: `${product.title} deleted successfully.`});
+    this.fetch()}
+      }
+    })
+   
+
   }
 
   deneme(product: ProductModel) {
     console.log(product)
+  }
+
+  showImageDialog(productModel: ProductModel) {
+    this.selectedProductModel = productModel;
+    this.displayImageDialog = true;
   }
 }
