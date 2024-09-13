@@ -1,13 +1,5 @@
 # ProductListApp
 
-Bu proje [Angular CLI](https://github.com/angular/angular-cli) kullanılarak Angular sürüm 14.1.3 ile oluşturulmuştur.
-
-
- <img src="![Screenshot 2024-09-13 174226](https://github.com/user-attachments/assets/f1268fae-a3a0-49a7-b311-ee7e11843e4f)
-" alt="Image 3" width="1000">
-
-
-
 ## Özellikler
 - **Ürün Ekleme**: Projede veriler Locale Storage'da tutulmaktadır, kendiniz ürün ekleyerek deneyebilirsiniz.
 - **Görsel Ekleme**: Ürün ekleme butonuna tıkladığınızda açılan modalde, görsel eklerken seçtiğiniz görselin butonun üzerine tıklayarak önizlemesini görebilirsiniz. Bu işlemle görsel kaydedilecektir.
@@ -23,6 +15,8 @@ Bu proje [Angular CLI](https://github.com/angular/angular-cli) kullanılarak Ang
 - **Birim Testleri**: `product-add` bileşeni için Jasmine ve Karma ile birim testleri yazıldı.
 - **Modern JavaScript**: ES6+ özellikleri kullanılarak kod okunabilirliği artırıldı.
 
+ <img src="https://github.com/zeynepcircir/product/blob/master/src/assets/x.png?raw=true" alt="Image 3" width="800">
+ 
 ## Mock Data
 
 Aşağıdaki örnek verileri Local Storage'a ekleyebilirsiniz (görselleri kendiniz eklemelisiniz).
