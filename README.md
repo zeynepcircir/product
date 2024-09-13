@@ -2,6 +2,11 @@
 
 Bu proje [Angular CLI](https://github.com/angular/angular-cli) kullanılarak Angular sürüm 14.1.3 ile oluşturulmuştur.
 
+
+
+ <img src="![image](https://github.com/user-attachments/assets/f5464956-cf1b-4cea-8c6f-2a9cde4bf168)
+" alt="Image 3" width="1000">
+
 ## Özellikler
 - **Ürün Ekleme**: Projede veriler Locale Storage'da tutulmaktadır, kendiniz ürün ekleyerek deneyebilirsiniz.
 - **Görsel Ekleme**: Ürün ekleme butonuna tıkladığınızda açılan modalde, görsel eklerken seçtiğiniz görselin butonun üzerine tıklayarak önizlemesini görebilirsiniz. Bu işlemle görsel kaydedilecektir.
