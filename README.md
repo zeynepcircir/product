@@ -2,6 +2,12 @@
 
 Bu proje [Angular CLI](https://github.com/angular/angular-cli) kullanılarak Angular sürüm 14.1.3 ile oluşturulmuştur.
 
+
+ <img src="![Screenshot 2024-09-13 174226](https://github.com/user-attachments/assets/f1268fae-a3a0-49a7-b311-ee7e11843e4f)
+" alt="Image 3" width="1000">
+
+
+
 ## Özellikler
 - **Ürün Ekleme**: Projede veriler Locale Storage'da tutulmaktadır, kendiniz ürün ekleyerek deneyebilirsiniz.
 - **Görsel Ekleme**: Ürün ekleme butonuna tıkladığınızda açılan modalde, görsel eklerken seçtiğiniz görselin butonun üzerine tıklayarak önizlemesini görebilirsiniz. Bu işlemle görsel kaydedilecektir.
@@ -26,11 +32,11 @@ Aşağıdaki örnek verileri Local Storage'a ekleyebilirsiniz (görselleri kendi
     {
         "id": 1,
         "category": "Laptops",
-        "description": "A high-performance laptop suitable for gaming and professional work.",
+        "description": "A high performance laptop suitable for gaming and professional work.",
         "image": "https://example.com/laptop1.jpg",
         "price": "1200",
         "title": "Gaming Laptop Pro",
-        "rating": 4.5
+        "rating": 1
     },
     {
         "id": 2,
@@ -39,16 +45,16 @@ Aşağıdaki örnek verileri Local Storage'a ekleyebilirsiniz (görselleri kendi
         "image": "https://example.com/smartphone1.jpg",
         "price": "900",
         "title": "Smartphone X",
-        "rating": 4.2
+        "rating": 3
     },
     {
         "id": 3,
-        "category": "Headphones",
-        "description": "Noise-cancelling wireless headphones with superior sound quality.",
+        "category": "Cameras",
+        "description": "Noise cancelling wireless headphones with superior sound quality.",
         "image": "https://example.com/headphones1.jpg",
         "price": "250",
         "title": "Wireless Headphones",
-        "rating": 4.8
+        "rating": 4
     }
 ]
 
