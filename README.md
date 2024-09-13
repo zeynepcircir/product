@@ -52,26 +52,3 @@ Bu proje [Angular CLI](https://github.com/angular/angular-cli) kullanılarak Ang
     }
 ]
 
-## Development Server
-
-Geliştirme sunucusunu başlatmak için `ng serve` komutunu çalıştırın. `http://localhost:4200/` adresine gidin. Uygulama, kaynak dosyalarında yapılan değişiklikler sonrası otomatik olarak yeniden yüklenecektir.
-
-## Kod Üretimi
-
-Yeni bir bileşen oluşturmak için `ng generate component component-name` komutunu çalıştırın. Ayrıca `ng generate directive|pipe|service|class|guard|interface|enum|module` komutlarını da kullanabilirsiniz.
-
-## Derleme
-
-Projeyi derlemek için `ng build` komutunu çalıştırın. Derleme çıktıları `dist/` dizininde saklanacaktır.
-
-## Birim Testlerini Çalıştırma
-
-Birim testlerini çalıştırmak için `ng test` komutunu kullanarak [Karma](https://karma-runner.github.io) aracılığıyla testleri yürütebilirsiniz.
-
-## Uçtan Uca Testleri Çalıştırma
-
-Uçtan uca testleri çalıştırmak için `ng e2e` komutunu kullanın. Bu komutu çalıştırmadan önce uçtan uca test yeteneklerini sağlayan bir paketi eklemeniz gerekmektedir.
-
-## Yardım
-
-Angular CLI ile ilgili daha fazla yardım almak için `ng help` komutunu çalıştırabilir veya [Angular CLI Genel Bakış ve Komut Referansı](https://angular.io/cli) sayfasını inceleyebilirsiniz.
