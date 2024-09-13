@@ -1,11 +1,6 @@
 # ProductListApp
 
- <img src="https://github.com/zeynepcircir/product/blob/master/src/assets/x.png?raw=true" alt="Image 3" width="1000">
-
-
- <img src="![Screenshot 2024-09-13 174226](https://github.com/user-attachments/assets/f1268fae-a3a0-49a7-b311-ee7e11843e4f)
-" alt="Image 3" width="1000">
-
+ <img src="https://github.com/zeynepcircir/product/blob/master/src/assets/x.png?raw=true" alt="Image 3" width="800">
 
 
 ## Özellikler
