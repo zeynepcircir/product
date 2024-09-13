@@ -1,3 +1,36 @@
+Navbar kısmında kategori bağlantıları ve ürün listeleme sayfasına yönlendiren bir logo ile temel bir navigasyon çubuğu tasarımı gerçekleştirildi.
+Ürünler, sayfalama özelliği ile 5'erli olarak listelendi, pagination eklendi.
+Ürünler için oylama ve sıralama özellikleri eklendi, sorting ile sıralama gerçekleştirildi.
+"Yeni Ürün Ekle" düğmesine tıklanarak modal ile açılan bir form sunuldu.
+Ürün ekleme işlemi form doğrulamaları ile desteklendi (boş form gönderimi engellendi).
+Başarılı ürün ekleme sonrası toast mesajı gösterildi.
+Her ürün için silme butonu sağlandı, silme işlemi için onay pop-up penceresi eklendi, silme işlemi başarılı olduktan sonra toast mesajı gösterildi, iptal durumunda listeye geri dönüldü.
+Ürünler için arama ve filtreleme işlevi sağlandı.
+Ürün listesi için lazy loading uygulandı.
+Mobil uyumlu tasarım ve responsive düzen sağlandı.
+Bootstrap ile responsive grid sistemi ve sayfa düzeni optimize edildi.
+Product-add component için Jasmine ve Karma ile birim testi yazıldı.
+ES6+ özellikleri kullanılarak kod okunabilirliği artırıldı.
+
+ <img src="![test2](https://github.com/user-attachments/assets/af2f37af-47bb-4e1a-a5f7-5a593532a1b1)" alt="Image 3" width="1000">
+ <img src="![test1](https://github.com/user-attachments/assets/95ddba1a-8180-430a-a900-578af24d4f3f)" alt="Image 3" width="1000">
+
+ 
+[2010213562.docx](https://github.com/user-attachments/files/16995118/2010213562.docx)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # ProductListApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.3.
