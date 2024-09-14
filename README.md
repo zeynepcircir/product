@@ -15,7 +15,9 @@
 - **Birim Testleri**: `product-add` bileşeni için Jasmine ve Karma ile birim testleri yazıldı.
 - **Modern JavaScript**: ES6+ özellikleri kullanılarak kod okunabilirliği artırıldı.
 
- <img src="https://github.com/zeynepcircir/product/blob/master/src/assets/x.png?raw=true" alt="Image 3" width="800">
+ <img src="https://github.com/zeynepcircir/product/blob/master/src/assets/x.png?raw=true" alt="Image 3" width="800"> <br/>
+ <img src="https://github.com/zeynepcircir/product/blob/master/src/assets/test2.png" alt="Image 3" width="800">  <br/>
+ <img src="https://github.com/zeynepcircir/product/blob/master/src/assets/test1.png" alt="Image 3" width="800">
  
 ## Mock Data
 
