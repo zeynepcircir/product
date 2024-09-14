@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Category, ProductModel } from '../models/ProductModel';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { log } from 'console';
 import { CategoryRoute } from '../models/Category';
 
 @Injectable({

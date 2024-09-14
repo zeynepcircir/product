@@ -15,7 +15,8 @@ previewImage: string | ArrayBuffer | null = null;
   product: ProductModel | null = null;
   value1: string = '';
 
-  categoryOptions = Object.keys(Category).map(key => ({
+  categoryOptions = Object.keys(Category)
+  .filter(a => a != "AllProducts").map(key => ({
     label: Category[key as keyof typeof Category],
     value: Category[key as keyof typeof Category]
   }));
@@ -50,8 +51,6 @@ previewImage: string | ArrayBuffer | null = null;
   }
 
   ngOnInit(): void {}
-
-  selectProduct({ product }: { product: ProductTableComponent }) {}
 
   cancel() {
     this.dynamicDialogRef.close();

@@ -14,7 +14,8 @@ export class ProductAddComponent implements OnInit {
   uploadedFiles: any[] = []
   previewImage: string | ArrayBuffer | null = null; 
 
-  categoryOptions = Object.keys(Category).map(key => ({
+  categoryOptions = Object.keys(Category)
+  .filter(a => a != "AllProducts").map(key => ({
     label: Category[key as keyof typeof Category],
     value: Category[key as keyof typeof Category]
   }));
@@ -52,7 +53,6 @@ export class ProductAddComponent implements OnInit {
   
   constructor(
     private dynamicDialogRef: DynamicDialogRef,
-    private productService: ProductService,
     private messageService: MessageService
   ) {}
 
@@ -84,7 +84,6 @@ export class ProductAddComponent implements OnInit {
   save() {
     if (this.profileForm.valid) {
       const formValue = this.profileForm.getRawValue() as ProductModel;
-      this.productService.addProduct(formValue); 
       this.dynamicDialogRef.close(formValue);
       this.messageService.add({severity: 'success', summary: 'Success', detail: `${formValue.title} added successfully.`});
     }

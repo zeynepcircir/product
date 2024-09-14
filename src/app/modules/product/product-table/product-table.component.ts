@@ -48,12 +48,9 @@ export class ProductTableComponent implements OnInit {
       })
       .onClose.subscribe((updatedProduct: ProductModel) => {
         if (updatedProduct) {
-          const index = this.productList.findIndex((pr) => pr.id === product.id);
-          if (index !== -1) {
-            this._productService.updateProduct(product.id!, updatedProduct);
-            this.productList[index] = updatedProduct;
+          updatedProduct.id = product.id
+          this._productService.updateProduct(product.id!, updatedProduct);
           this.fetch()
-          }
         }
       });
   }
@@ -68,6 +65,8 @@ export class ProductTableComponent implements OnInit {
       })
       .onClose.subscribe((newProduct: ProductModel) => {
         if (newProduct) {
+          this._productService.addProduct(newProduct); 
+          this.fetch()
         }
       });
   }
@@ -79,7 +78,7 @@ export class ProductTableComponent implements OnInit {
   fetch() {
     this.primengConfig.ripple = true;
     this._activatedRoute.paramMap.subscribe((params) => {
-      this.categoryName = params.get('categoryName') ?? 'all-products';
+      this.categoryName = params.get('categoryName') ?? 'all-products';            
       this.getProductByCategory();
     });
 
@@ -96,11 +95,11 @@ export class ProductTableComponent implements OnInit {
   getProductByCategory() {
     if (this.categoryName) {
       this._productService.getCategoryProducts(this.categoryName).subscribe((filteredProducts) => {
-        this.productList = filteredProducts;
+        this.productList = JSON.parse(JSON.stringify(filteredProducts));        
       });
     } else {
       this._productService.getProducts().subscribe((products) => {
-        this.productList = products;
+        this.productList = JSON.parse(JSON.stringify(products));        
       });
     }
   }
@@ -134,19 +133,15 @@ export class ProductTableComponent implements OnInit {
     this.confirmationService.confirm({
       message: 'Are you sure you want to delete?',
       header: 'Confirmation',
-      icon:'',
-      accept:() => {
-         if(product.id){
-    this._productService.deleteProduct(product.id); 
-    this.productList = this.productList.filter(product => product.id !== product.id);  
- 
-
-    this.messageService.add({severity: 'success', summary: 'Success', detail: `${product.title} deleted successfully.`});
-    this.fetch()}
+      icon: '',
+      accept: () => {
+        if (product.id) {
+          this._productService.deleteProduct(product.id);
+          this.messageService.add({ severity: 'success', summary: 'Success', detail: `${product.title} deleted successfully.` });
+          this.fetch()
+        }
       }
     })
-   
-
   }
 
   
